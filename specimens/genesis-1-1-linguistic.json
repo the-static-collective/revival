@@ -133,5 +133,37 @@
         "g7"
       ]
     }
+  ],
+  "relations": [
+    {
+      "id": "r-agent-demo",
+      "from": "g3",
+      "to": "g2",
+      "kind": "demo-agent-of",
+      "label": "acts through",
+      "source": "Revival demonstration relation",
+      "authority": "demo-relation-only",
+      "note": "Illustrative traversal relation; not a grammatical or theological authority claim."
+    },
+    {
+      "id": "r-heavens-demo",
+      "from": "g2",
+      "to": "g5",
+      "kind": "demo-target",
+      "label": "toward",
+      "source": "Revival demonstration relation",
+      "authority": "demo-relation-only",
+      "note": "Illustrative traversal relation for the curiosity-room contract."
+    },
+    {
+      "id": "r-earth-demo",
+      "from": "g2",
+      "to": "g7",
+      "kind": "demo-target",
+      "label": "toward",
+      "source": "Revival demonstration relation",
+      "authority": "demo-relation-only",
+      "note": "Illustrative traversal relation for the curiosity-room contract."
+    }
   ]
 }
