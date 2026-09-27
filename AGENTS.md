@@ -54,6 +54,14 @@ These rules apply to the whole repository.
 - Any adapter transformation from source representation to Revival carrier must be declared and receipted.
 - Source-backed means attributable to a source; it does not mean infallible, canonical, or interpretation-free.
 
+## Keep cross-passage resemblance dangerous
+
+- A lemma door is navigation by declared corpus identity, not semantic equivalence.
+- Revival 007 exact-lemma indexing must not silently strip prefixes, normalize lexical ids, or conflate lemma strings.
+- Same lemma does not establish same sense, referent, relation, interpretation, or theology.
+- Multi-witness corpus state gets corpus receipts; never impersonate a corpus as one kernel witness.
+- Every cross-passage door must retain destination witness, locator, token id, source surface, and source-layer authority.
+
 ## Proof before claim
 
 - Executable behavior needs focused tests.
