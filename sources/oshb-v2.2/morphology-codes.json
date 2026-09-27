@@ -1,0 +1,17 @@
+{
+  "id": "oshb-v2.2-morphology-codes",
+  "project": "Open Scriptures Hebrew Bible",
+  "version": "2.2",
+  "upstream_repository": "https://github.com/openscriptures/morphhb",
+  "upstream_ref": "v.2.2",
+  "upstream_commit": "6a5db284c715c18b239422e57bb89684e6a19f00",
+  "upstream_path": "read/Script/MorphologyParser.js",
+  "upstream_blob_sha": "0182bbff00a743267e9b68256bdc3afaccebc95c",
+  "used_codes": {
+    "language.H": "Hebrew",
+    "partOfSpeech.C": "Conjunction",
+    "partOfSpeech.T": "Particle",
+    "particleType.o": "direct object marker"
+  },
+  "note": "Revival 008 uses only these pinned OSHB morphology-code meanings. It does not claim a complete morphology parser."
+}
