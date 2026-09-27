@@ -71,6 +71,15 @@ These rules apply to the whole repository.
 - The first/last-letter observation belongs to an interpretive layer and must not be promoted into direct-object-marker grammar.
 - Immediate-next-token context in Revival 008 is not a full syntax parse.
 
+## Keep syntax and semantics separately attributable
+
+- Immediate token adjacency is not a syntax relation.
+- A marked-object claim must name the syntax layer that supplied the constituent relation.
+- A semantic-frame role is separate evidence from a syntax-tree role, even when both point to the same token.
+- External syntax must align back to the held source layer before its relations are admitted.
+- Agreement between linguistic layers does not collapse their authority or provenance.
+- MACULA annotations remain external evidence; they do not become witness text or frozen-kernel law.
+
 ## Proof before claim
 
 - Executable behavior needs focused tests.
