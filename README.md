@@ -267,6 +267,51 @@ The Revival textual witness is explicitly a **deterministic carrier derived from
 
 See [OSHB Adapter](docs/OSHB_ADAPTER.md) and [source attribution](sources/oshb-v2.2/ATTRIBUTION.md).
 
+## Dangerous lemma doors
+
+Revival 007 makes linguistic curiosity cross passage boundaries.
+
+The first proof corpus contains pinned OSHB v2.2 Genesis 1:1-3. Exact OSHB lemma strings are indexed across the three independently receipted witnesses.
+
+For lemma `430`, Revival now sees:
+
+```text
+Gen.1.1  01TyA  אֱלֹהִ֑ים
+Gen.1.2  01x9c  אֱלֹהִ֔ים
+Gen.1.3  01JM7  אֱלֹהִ֖ים
+```
+
+Inspect the occurrence constellation:
+
+```bash
+python -m revival.corpus corpora/oshb-v2.2-genesis-opening.json --lemma 430 --pretty
+```
+
+Open Genesis 1:1 with cross-passage lemma doors:
+
+```bash
+python -m revival.corpus corpora/oshb-v2.2-genesis-opening.json \
+  --locator Gen.1.1 \
+  --token 01TyA \
+  --pretty
+```
+
+Or build the first multi-witness walkable Atlas:
+
+```bash
+python -m revival.corpus_atlas corpora/oshb-v2.2-genesis-opening.json \
+  --output /tmp/revival-genesis-opening.html \
+  --pretty
+```
+
+Click the real OSHB `אֱלֹהִ֑ים` token in Genesis 1:1 and its **Dangerous lemma doors** can carry you directly into the source-backed rooms for Genesis 1:2 or Genesis 1:3.
+
+The identity rule is intentionally strict: exact declared lemma-string equality only. Revival 007 does not silently collapse `d/776` into `c/d/776`, strip prefixes, or claim that repeated lemma identity means repeated sense, referent, syntax, interpretation, or theology.
+
+Cross-witness traversal also gets its own corpus receipt rather than pretending several verses are one kernel witness.
+
+See [Dangerous Lemma Doors](docs/LEMMA_DOORS.md).
+
 ## What must survive every compilation
 
 Revival begins with six kernel primitives:
@@ -391,6 +436,8 @@ Adapters for Scripture Burrito, USFM/USX/USJ, TEI, Universal Dependencies, Text-
 | `src/revival/curiosity.py` | replayable token curiosity rooms and relation doors |
 | `src/revival/atlas.py` | deterministic standalone walkable HTML Atlas |
 | `src/revival/adapters/oshb.py` | pinned OSHB OSIS → Revival source adapter |
+| `src/revival/corpus.py` | deterministic multi-witness corpus + exact-lemma index |
+| `src/revival/corpus_atlas.py` | walkable cross-passage Corpus Atlas |
 | `specimens/genesis-1-1.json` | original transformation specimen |
 | `specimens/genesis-1-1-linguistic.json` | custom-output linguistic specimen |
 | `tests/` | executable determinism, trace, delta, and ancestry claims |
@@ -400,7 +447,9 @@ Adapters for Scripture Burrito, USFM/USX/USJ, TEI, Universal Dependencies, Text-
 | `docs/CURIOSITY_ROOMS.md` | source-backed token rooms and traversal law |
 | `docs/CURIOSITY_ATLAS.md` | standalone walkable presentation contract |
 | `docs/OSHB_ADAPTER.md` | first real external linguistic source crossing |
-| `sources/oshb-v2.2/` | pinned Genesis 1:1 fixture, source manifest, attribution |
+| `docs/LEMMA_DOORS.md` | cross-passage exact-lemma traversal law |
+| `sources/oshb-v2.2/` | pinned Genesis 1:1-3 fixtures, source manifests, attribution |
+| `corpora/oshb-v2.2-genesis-opening.json` | first multi-witness proof corpus |
 | `docs/KERNEL_V1.md` | frozen kernel contract |
 | `docs/SCISSORS.md` | lawful kernel descent |
 

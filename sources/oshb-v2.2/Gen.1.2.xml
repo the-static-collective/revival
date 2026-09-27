@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<verse xmlns="http://www.bibletechnologies.net/2003/OSIS/namespace" osisID="Gen.1.2">
+  <w lemma="c/d/776" n="1.1.1" morph="HC/Td/Ncbsa" id="01LN3">וְ/הָ/אָ֗רֶץ</w>
+  <w lemma="1961" morph="HVqp3fs" id="01Qzf">הָיְתָ֥ה</w>
+  <w lemma="8414" n="1.1.0" morph="HNcmsa" id="01aPd">תֹ֨הוּ֙</w>
+  <w lemma="c/922" n="1.1" morph="HC/Ncmsa" id="01eYX">וָ/בֹ֔הוּ</w>
+  <w lemma="c/2822" n="1.0" morph="HC/Ncmsa" id="01C5U">וְ/חֹ֖שֶׁךְ</w>
+  <w lemma="5921 a" morph="HR" id="01qNN">עַל</w><seg type="x-maqqef">־</seg><w lemma="6440" morph="HNcbpc" id="01EVS">פְּנֵ֣י</w>
+  <w lemma="8415" n="1" morph="HNcbsa" id="01PB6">תְה֑וֹם</w>
+  <w lemma="c/7307" morph="HC/Ncbsc" id="0137c">וְ/ר֣וּחַ</w>
+  <w lemma="430" n="0.1" morph="HNcmpa" id="01x9c">אֱלֹהִ֔ים</w>
+  <w lemma="7363 b" n="0.0" morph="HVprfsa" id="01yNB">מְרַחֶ֖פֶת</w>
+  <w lemma="5921 a" morph="HR" id="0129t">עַל</w><seg type="x-maqqef">־</seg><w lemma="6440" morph="HNcbpc" id="01KZG">פְּנֵ֥י</w>
+  <w lemma="d/4325" n="0" morph="HTd/Ncmpa" id="01TZE">הַ/מָּֽיִם</w><seg type="x-sof-pasuq">׃</seg>
+</verse>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<verse xmlns="http://www.bibletechnologies.net/2003/OSIS/namespace" osisID="Gen.1.3">
+  <w lemma="c/559" morph="HC/Vqw3ms" id="01thY">וַ/יֹּ֥אמֶר</w>
+  <w lemma="430" n="1.0" morph="HNcmpa" id="01JM7">אֱלֹהִ֖ים</w>
+  <w lemma="1961" morph="HVqj3ms" id="01fpo">יְהִ֣י</w>
+  <w lemma="216" n="1" morph="HNcbsa" id="01W26">א֑וֹר</w>
+  <w lemma="c/1961" morph="HC/Vqw3ms" id="01yw4">וַֽ/יְהִי</w><seg type="x-maqqef">־</seg><w lemma="216" n="0" morph="HNcbsa" id="01jbg">אֽוֹר</w><seg type="x-sof-pasuq">׃</seg>
+</verse>

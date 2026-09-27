@@ -63,3 +63,39 @@ jobs:
           grep -q '"morph": "HNcmpa"' /tmp/oshb-genesis-1-1.01TyA.json
           grep -q 'Declared layers' /tmp/oshb-genesis-1-1.html
           grep -q 'HNcmpa' /tmp/oshb-genesis-1-1.html
+      - name: Index dangerous lemma 430 across Genesis opening corpus
+        run: |
+          python -m revival.corpus \
+            corpora/oshb-v2.2-genesis-opening.json \
+            --lemma 430 \
+            --pretty > /tmp/revival-lemma-430.json
+      - name: Verify exact lemma occurrence constellation
+        run: |
+          grep -q '"token_id": "01TyA"' /tmp/revival-lemma-430.json
+          grep -q '"token_id": "01x9c"' /tmp/revival-lemma-430.json
+          grep -q '"token_id": "01JM7"' /tmp/revival-lemma-430.json
+      - name: Open Genesis 1:1 cross-passage lemma room
+        run: |
+          python -m revival.corpus \
+            corpora/oshb-v2.2-genesis-opening.json \
+            --locator Gen.1.1 \
+            --token 01TyA \
+            --pretty > /tmp/revival-genesis-1-1-lemma-room.json
+      - name: Verify dangerous lemma doors
+        run: |
+          grep -q '"destination_locator": "Gen.1.2"' /tmp/revival-genesis-1-1-lemma-room.json
+          grep -q '"destination_token_id": "01x9c"' /tmp/revival-genesis-1-1-lemma-room.json
+          grep -q '"destination_locator": "Gen.1.3"' /tmp/revival-genesis-1-1-lemma-room.json
+          grep -q '"destination_token_id": "01JM7"' /tmp/revival-genesis-1-1-lemma-room.json
+      - name: Build multi-witness dangerous-lemma Atlas
+        run: |
+          python -m revival.corpus_atlas \
+            corpora/oshb-v2.2-genesis-opening.json \
+            --output /tmp/revival-genesis-opening.html \
+            --pretty > /tmp/revival-genesis-opening.atlas.json
+      - name: Verify cross-passage Atlas
+        run: |
+          test -s /tmp/revival-genesis-opening.html
+          grep -q 'Dangerous Lemma Doors' /tmp/revival-genesis-opening.html
+          grep -q 'Gen.1.2::01x9c' /tmp/revival-genesis-opening.html
+          grep -q 'Gen.1.3::01JM7' /tmp/revival-genesis-opening.html
