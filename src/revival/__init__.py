@@ -6,6 +6,7 @@ from .aleph_tav_atlas import build_aleph_tav_atlas_html
 from .compiler import compile_specimen
 from .corpus import build_corpus, lemma_occurrences, open_corpus_token_room
 from .curiosity import open_token_room
+from .first_world import build_first_world, build_first_world_html
 from .kernel.v1 import KERNEL_VERSION, PRIMITIVES
 from .linguistic import compile_linguistic_projection, list_choices, list_recipes
 from .object_relations import build_object_relation_instrument, open_object_relation_room
@@ -18,6 +19,8 @@ __all__ = [
     "build_curiosity_atlas_html",
     "build_aleph_tav_atlas_html",
     "build_aleph_tav_instrument",
+    "build_first_world",
+    "build_first_world_html",
     "build_object_relation_atlas_html",
     "build_object_relation_instrument",
     "build_corpus",

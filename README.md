@@ -433,6 +433,52 @@ agreement != identity
 
 See [Object Relations](docs/OBJECT_RELATIONS.md) and [MACULA attribution](sources/macula-hebrew/ATTRIBUTION.md).
 
+
+## The First World
+
+Revival 010 composes the proven corpus, Aleph-Tav, and MACULA object-relation
+instruments into one standalone walkable Scripture world.
+
+```bash
+python -m revival.first_world \
+  corpora/oshb-v2.2-genesis-opening.json \
+  --macula-xml sources/macula-hebrew/Gen.1.1-lowfat.xml \
+  --macula-manifest sources/macula-hebrew/source.json \
+  --output /tmp/revival-first-world.html \
+  --pretty
+```
+
+The same source-backed corpus can be walked through four projection states:
+
+```text
+source → operator → letters → hidden
+```
+
+When a projection suppresses an Aleph-Tav marker, the source object does not
+vanish from inspectability. It appears as a clickable `∅` room so the reader
+can inspect exactly what the projection removed.
+
+Each room can carry source order, exact-lemma doors, derived Aleph-Tav family
+doors, MACULA syntax doors, separate semantic-frame evidence, traversal
+history, and an explicit fog state where Revival has no attributable relation
+to offer.
+
+> **Every object in this world knows where it came from.**
+
+The world is a receipted descendant. It does not turn navigation into source
+authority:
+
+```text
+source != annotation
+annotation != derivation
+derivation != interpretation
+syntax != semantic frame
+navigation != theology
+projection != witness
+```
+
+See [The First World](docs/FIRST_WORLD.md).
+
 ## What must survive every compilation
 
 Revival begins with six kernel primitives:
@@ -563,7 +609,7 @@ Adapters for Scripture Burrito, USFM/USX/USJ, TEI, Universal Dependencies, Text-
 | `src/revival/aleph_tav_atlas.py` | walkable Aleph-Tav learning instrument |
 | `src/revival/adapters/macula.py` | pinned MACULA lowfat → OSHB-aligned relation adapter |
 | `src/revival/object_relations.py` | syntax/frame-backed object relation rooms |
-| `src/revival/object_relations_atlas.py` | walkable attributed object-relation Atlas |
+| `src/revival/object_relations_atlas.py` | walkable attributed object-relation Atlas |\n| `src/revival/first_world.py` | unified receipted Scripture world composed from the proven Atlases |
 | `specimens/genesis-1-1.json` | original transformation specimen |
 | `specimens/genesis-1-1-linguistic.json` | custom-output linguistic specimen |
 | `tests/` | executable determinism, trace, delta, and ancestry claims |
@@ -575,7 +621,7 @@ Adapters for Scripture Burrito, USFM/USX/USJ, TEI, Universal Dependencies, Text-
 | `docs/OSHB_ADAPTER.md` | first real external linguistic source crossing |
 | `docs/LEMMA_DOORS.md` | cross-passage exact-lemma traversal law |
 | `docs/ALEPH_TAV_INSTRUMENT.md` | letters / reading / grammar / projection / interpretation separation |
-| `docs/OBJECT_RELATIONS.md` | syntax-backed object phrase and governing-verb relations |
+| `docs/OBJECT_RELATIONS.md` | syntax-backed object phrase and governing-verb relations |\n| `docs/FIRST_WORLD.md` | Revival 010 world-composition and epistemic-topology contract |
 | `sources/oshb-v2.2/` | pinned Genesis 1:1-3 fixtures, source manifests, morphology-code authority, attribution |
 | `sources/macula-hebrew/` | pinned Genesis 1:1 syntax fixture, source manifest, attribution |
 | `corpora/oshb-v2.2-genesis-opening.json` | first multi-witness proof corpus |
