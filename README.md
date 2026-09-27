@@ -312,6 +312,67 @@ Cross-witness traversal also gets its own corpus receipt rather than pretending 
 
 See [Dangerous Lemma Doors](docs/LEMMA_DOORS.md).
 
+## Aleph-Tav Instrument
+
+Revival 008 turns Genesis 1:1's two real OSHB direct-object-marker occurrences into a source-backed learning instrument.
+
+OSHB v2.2 gives us:
+
+```text
+01vuQ  אֵ֥ת      lemma=853    morph=HTo
+01k5P  וְ/אֵ֥ת   lemma=c/853  morph=HC/To
+```
+
+The pinned OSHB morphology parser defines `T` as Particle, subtype `o` as `direct object marker`, and `C` as Conjunction.
+
+Revival does **not** silently declare `853 == c/853`. Instead it explicitly decomposes the aligned OSHB morpheme layers:
+
+```text
+surface  וְ / אֵ֥ת
+lemma    c  / 853
+morph    HC / To
+```
+
+That earns a derived Aleph-Tav family door while leaving both upstream lemma strings untouched.
+
+Inspect the instrument:
+
+```bash
+python -m revival.aleph_tav corpora/oshb-v2.2-genesis-opening.json --pretty
+```
+
+Open the standalone marker:
+
+```bash
+python -m revival.aleph_tav corpora/oshb-v2.2-genesis-opening.json \
+  --locator Gen.1.1 \
+  --token 01vuQ \
+  --pretty
+```
+
+Build the walkable instrument:
+
+```bash
+python -m revival.aleph_tav_atlas corpora/oshb-v2.2-genesis-opening.json \
+  --output /tmp/revival-aleph-tav.html \
+  --pretty
+```
+
+The Atlas separates:
+
+```text
+READ        learner hint: et
+LETTERS     את = Aleph + Tav
+GRAMMAR     Particle / direct object marker
+STRUCTURE   immediate next-token context
+PROJECTION  source / operator / letters / hidden
+INTERPRET   first/last-letter symbolism held behind a separate boundary
+```
+
+The four projection experiments let a reader keep the marker visible, render it as `[OBJ→]`, expose `⟦את⟧`, or suppress only the marker component to see what disappears. These are pedagogical descendants, not source rewrites or translation verdicts.
+
+See [Aleph-Tav Instrument](docs/ALEPH_TAV_INSTRUMENT.md).
+
 ## What must survive every compilation
 
 Revival begins with six kernel primitives:
@@ -438,6 +499,8 @@ Adapters for Scripture Burrito, USFM/USX/USJ, TEI, Universal Dependencies, Text-
 | `src/revival/adapters/oshb.py` | pinned OSHB OSIS → Revival source adapter |
 | `src/revival/corpus.py` | deterministic multi-witness corpus + exact-lemma index |
 | `src/revival/corpus_atlas.py` | walkable cross-passage Corpus Atlas |
+| `src/revival/aleph_tav.py` | OSHB morpheme decomposition + Aleph-Tav learning family |
+| `src/revival/aleph_tav_atlas.py` | walkable Aleph-Tav learning instrument |
 | `specimens/genesis-1-1.json` | original transformation specimen |
 | `specimens/genesis-1-1-linguistic.json` | custom-output linguistic specimen |
 | `tests/` | executable determinism, trace, delta, and ancestry claims |
@@ -448,7 +511,8 @@ Adapters for Scripture Burrito, USFM/USX/USJ, TEI, Universal Dependencies, Text-
 | `docs/CURIOSITY_ATLAS.md` | standalone walkable presentation contract |
 | `docs/OSHB_ADAPTER.md` | first real external linguistic source crossing |
 | `docs/LEMMA_DOORS.md` | cross-passage exact-lemma traversal law |
-| `sources/oshb-v2.2/` | pinned Genesis 1:1-3 fixtures, source manifests, attribution |
+| `docs/ALEPH_TAV_INSTRUMENT.md` | letters / reading / grammar / projection / interpretation separation |
+| `sources/oshb-v2.2/` | pinned Genesis 1:1-3 fixtures, source manifests, morphology-code authority, attribution |
 | `corpora/oshb-v2.2-genesis-opening.json` | first multi-witness proof corpus |
 | `docs/KERNEL_V1.md` | frozen kernel contract |
 | `docs/SCISSORS.md` | lawful kernel descent |
