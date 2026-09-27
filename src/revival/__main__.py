@@ -6,6 +6,7 @@ import argparse
 import json
 from pathlib import Path
 
+from .atlas import build_curiosity_atlas_html
 from .compiler import compile_specimen
 from .curiosity import open_token_room
 from .linguistic import compile_linguistic_projection, list_choices, list_recipes
@@ -41,11 +42,37 @@ def main() -> None:
         "--open-token",
         help="Open one emitted source token as a curiosity room; requires --recipe.",
     )
+    parser.add_argument(
+        "--build-atlas",
+        type=Path,
+        help="Write a standalone Curiosity Atlas HTML file; requires --recipe.",
+    )
     args = parser.parse_args()
 
     specimen = json.loads(args.specimen.read_text(encoding="utf-8"))
     if args.list_recipes:
         result = {"recipes": list_recipes(specimen)}
+    elif args.build_atlas:
+        if not args.recipe:
+            parser.error("--build-atlas requires --recipe")
+        if args.list_choices or args.open_token:
+            parser.error("--build-atlas cannot be combined with --list-choices or --open-token")
+        profile = (
+            json.loads(args.profile.read_text(encoding="utf-8"))
+            if args.profile
+            else None
+        )
+        atlas_result, atlas_html = build_curiosity_atlas_html(
+            specimen,
+            args.recipe,
+            profile,
+        )
+        args.build_atlas.write_text(atlas_html, encoding="utf-8")
+        result = {
+            "atlas_output": str(args.build_atlas),
+            "compiled_text": atlas_result["atlas"]["compiled_text"],
+            "receipt": atlas_result["receipt"],
+        }
     elif args.open_token:
         if not args.recipe:
             parser.error("--open-token requires --recipe")
