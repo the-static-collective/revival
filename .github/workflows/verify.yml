@@ -33,3 +33,13 @@ jobs:
         run: python -m revival specimens/genesis-1-1-linguistic.json --recipe reader-demo --profile profiles/genesis-1-1-elohim.json --open-token g3 --pretty > /tmp/genesis-1-1.g3-elohim-room.json
       - name: Traverse relation destination room
         run: python -m revival specimens/genesis-1-1-linguistic.json --recipe reader-demo --open-token g2 --pretty > /tmp/genesis-1-1.g2-room.json
+      - name: Build default Curiosity Atlas
+        run: python -m revival specimens/genesis-1-1-linguistic.json --recipe reader-demo --build-atlas /tmp/genesis-1-1.html --pretty > /tmp/genesis-1-1.atlas.json
+      - name: Build Elohim Curiosity Atlas
+        run: python -m revival specimens/genesis-1-1-linguistic.json --recipe reader-demo --profile profiles/genesis-1-1-elohim.json --build-atlas /tmp/genesis-1-1-elohim.html --pretty > /tmp/genesis-1-1-elohim.atlas.json
+      - name: Verify standalone Atlas artifacts
+        run: |
+          test -s /tmp/genesis-1-1.html
+          test -s /tmp/genesis-1-1-elohim.html
+          grep -q "Curiosity Atlas" /tmp/genesis-1-1.html
+          grep -q "revival-data" /tmp/genesis-1-1.html

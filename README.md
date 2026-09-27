@@ -184,6 +184,37 @@ more doors
 
 See [Curiosity Rooms](docs/CURIOSITY_ROOMS.md).
 
+## Walk the compiled Bible
+
+Revival 005 packages the current curiosity world into one standalone HTML file:
+
+```bash
+python -m revival specimens/genesis-1-1-linguistic.json \
+  --recipe reader-demo \
+  --build-atlas dist/genesis-1-1.html \
+  --pretty
+```
+
+Open `dist/genesis-1-1.html` in a browser.
+
+The compiled verse becomes a clickable floor. Each rendered token opens its source-backed room; source-order neighbors, compiled-order neighbors, and declared relation doors are walkable; alternate renderings remain explicit previews rather than hidden mutations.
+
+Compile the `Elohim` preference into its own inhabitable descendant:
+
+```bash
+python -m revival specimens/genesis-1-1-linguistic.json \
+  --recipe reader-demo \
+  --profile profiles/genesis-1-1-elohim.json \
+  --build-atlas dist/genesis-1-1-elohim.html \
+  --pretty
+```
+
+Same witness. Different compiled world. Separate receipt.
+
+The Atlas is deterministic, local, dependency-free at runtime, and contains no network calls. Imported source/annotation text is embedded as inert JSON data and rendered with browser `textContent`.
+
+See [Curiosity Atlas](docs/CURIOSITY_ATLAS.md).
+
 ## What must survive every compilation
 
 Revival begins with six kernel primitives:
@@ -306,6 +337,7 @@ Adapters for Scripture Burrito, USFM/USX/USJ, TEI, Universal Dependencies, Text-
 | `src/revival/compiler.py` | original transform proof |
 | `src/revival/linguistic.py` | source-token anchoring and recipe-driven linguistic compilation |
 | `src/revival/curiosity.py` | replayable token curiosity rooms and relation doors |
+| `src/revival/atlas.py` | deterministic standalone walkable HTML Atlas |
 | `specimens/genesis-1-1.json` | original transformation specimen |
 | `specimens/genesis-1-1-linguistic.json` | custom-output linguistic specimen |
 | `tests/` | executable determinism, trace, delta, and ancestry claims |
@@ -313,6 +345,7 @@ Adapters for Scripture Burrito, USFM/USX/USJ, TEI, Universal Dependencies, Text-
 | `docs/LINGUISTIC_RECIPES.md` | current recipe contract |
 | `docs/PREFERENCE_PROFILES.md` | reader-choice contract and authority boundary |
 | `docs/CURIOSITY_ROOMS.md` | source-backed token rooms and traversal law |
+| `docs/CURIOSITY_ATLAS.md` | standalone walkable presentation contract |
 | `docs/KERNEL_V1.md` | frozen kernel contract |
 | `docs/SCISSORS.md` | lawful kernel descent |
 
