@@ -36,6 +36,14 @@ These rules apply to the whole repository.
 - Unrelated relations should not invalidate an unchanged local room.
 - A compelling room, graph, map, game, or reconstructed world does not acquire canon or truth authority by being explorable.
 
+## Keep presentation subordinate to receipts
+
+- Generated HTML is a presentation descendant, not witness material.
+- Embed source and annotation content as inert data; do not grant imported text executable page authority.
+- Browser click state and traversal trails are ephemeral interaction state unless a future contract explicitly witnesses them.
+- A rendering-choice preview must not mutate an accepted compilation or its receipt.
+- The Atlas may compose room receipts; it does not replace them.
+
 ## Proof before claim
 
 - Executable behavior needs focused tests.
