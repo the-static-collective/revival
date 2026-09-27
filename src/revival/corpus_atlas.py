@@ -77,12 +77,13 @@ def _safe_json(value: Any) -> str:
         sort_keys=True,
         separators=(",", ":"),
     )
+    slash = chr(92)
     return (
-        encoded.replace("&", "\u0026")
-        .replace("<", "\u003c")
-        .replace(">", "\u003e")
-        .replace(" ", "\u2028")
-        .replace(" ", "\u2029")
+        encoded.replace("&", slash + "u0026")
+        .replace("<", slash + "u003c")
+        .replace(">", slash + "u003e")
+        .replace(chr(0x2028), slash + "u2028")
+        .replace(chr(0x2029), slash + "u2029")
     )
 
 
