@@ -658,6 +658,17 @@ pre { white-space:pre-wrap; overflow-wrap:anywhere; font-size:.78rem; color:#d0c
     var isAnchor = place.kind.endsWith("-anchor");
     panel.hidden = !isAnchor;
     if (isAnchor) {
+      var childHost = el("children");
+      var target = places[place.token_address];
+      if (target) {
+        childHost.replaceChildren(
+          buttonFor(
+            target.address,
+            "source token → " + target.label,
+            "door"
+          )
+        );
+      }
       el("anchor-data").textContent = JSON.stringify(
         {
           kind: place.kind,
