@@ -479,6 +479,54 @@ projection != witness
 
 See [The First World](docs/FIRST_WORLD.md).
 
+
+## The World Has Places
+
+Revival 011 gives the first world a stable address space and explicit scale.
+
+```bash
+python -m revival.world_places \
+  corpora/oshb-v2.2-genesis-opening.json \
+  --macula-xml sources/macula-hebrew/Gen.1.1-lowfat.xml \
+  --macula-manifest sources/macula-hebrew/source.json \
+  --output /tmp/revival-world-places.html \
+  --pretty
+```
+
+Every source token in the Genesis 1:1-3 proof corpus now has a stable place:
+
+```text
+revival://oshb-v2.2-genesis-opening
+  /scene/genesis-opening-proof
+    /passage/Gen.1.1
+      /token/01TyA
+```
+
+The current proof has **27 source-token places**. OSHB morphology can also earn
+`nominal-anchor` and `verbal-anchor` locations that point back to their exact
+source rooms.
+
+011 deliberately does **not** infer stronger semantic world types from that
+morphology:
+
+```text
+noun != person/place/object
+verb != established event model
+address != geography
+scene container != source division
+```
+
+Those classifications remain explicit fog until another attributable layer
+earns them.
+
+The standalone world now supports world → scene → passage → token zoom,
+morphology anchors, breadcrumbs, and stable `revival://` addresses preserved
+in the browser fragment.
+
+> **The world now has places. It does not yet pretend to know what every place means.**
+
+See [The World Has Places](docs/WORLD_PLACES.md).
+
 ## What must survive every compilation
 
 Revival begins with six kernel primitives:
