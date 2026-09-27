@@ -1,0 +1,19 @@
+{
+  "source_id": "oshb-v2.2:Gen.1.3",
+  "osis_id": "Gen.1.3",
+  "fixture_sha256": "4b33d01e72e0ea234186595e367f660afd13a07755fdeff4cab019fb9fe58918",
+  "project": "Open Scriptures Hebrew Bible",
+  "version": "2.2",
+  "upstream_repository": "https://github.com/openscriptures/morphhb",
+  "upstream_ref": "v.2.2",
+  "upstream_commit": "6a5db284c715c18b239422e57bb89684e6a19f00",
+  "upstream_path": "wlc/Gen.xml",
+  "upstream_blob_sha": "dcc8be362134981d3054e9b64d3a465d08492a33",
+  "fixture_kind": "Revival verse wrapper around pinned upstream OSIS word and segment elements.",
+  "retrieved_for_revival": "2026-09-27",
+  "license": {
+    "text": "Westminster Leningrad Codex text: Public Domain",
+    "annotations": "OSHB lemma and morphology data: Creative Commons Attribution 4.0 International (CC BY 4.0)",
+    "attribution": "Original work of the Open Scriptures Hebrew Bible available at https://github.com/openscriptures/morphhb"
+  }
+}
