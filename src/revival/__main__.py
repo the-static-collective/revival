@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 
 from .compiler import compile_specimen
-from .linguistic import compile_linguistic_projection, list_recipes
+from .linguistic import compile_linguistic_projection, list_choices, list_recipes
 
 
 def main() -> None:
@@ -26,14 +26,40 @@ def main() -> None:
         action="store_true",
         help="List linguistic recipes declared by the specimen.",
     )
+    parser.add_argument(
+        "--list-choices",
+        action="store_true",
+        help="List selectable rendering choices exposed by --recipe.",
+    )
+    parser.add_argument(
+        "--profile",
+        type=Path,
+        help="Preference profile JSON used with --recipe.",
+    )
     args = parser.parse_args()
 
     specimen = json.loads(args.specimen.read_text(encoding="utf-8"))
     if args.list_recipes:
         result = {"recipes": list_recipes(specimen)}
+    elif args.list_choices:
+        if not args.recipe:
+            parser.error("--list-choices requires --recipe")
+        if args.profile:
+            parser.error("--list-choices does not consume --profile")
+        result = {
+            "recipe": args.recipe,
+            "choices": list_choices(specimen, args.recipe),
+        }
     elif args.recipe:
-        result = compile_linguistic_projection(specimen, args.recipe)
+        profile = (
+            json.loads(args.profile.read_text(encoding="utf-8"))
+            if args.profile
+            else None
+        )
+        result = compile_linguistic_projection(specimen, args.recipe, profile)
     else:
+        if args.profile:
+            parser.error("--profile requires --recipe")
         result = compile_specimen(specimen)
     print(
         json.dumps(
