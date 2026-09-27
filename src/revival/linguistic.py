@@ -231,14 +231,25 @@ def compile_linguistic_projection(
         },
     )
 
+    input_bindings = [
+        {
+            "token_id": item["token_id"],
+            "source_surface": item["source_surface"],
+            "source_span": item["source_span"],
+            "rendered": item["rendered"],
+            "origin": item["origin"],
+        }
+        for item in trace
+    ]
     transform = Transform(
         name="linguistic_recipe",
         version="1",
         parameters={
             "recipe": recipe,
-            # Bind every source-anchored token and annotation input into the
-            # transform identity so annotation edits change the receipt.
-            "anchored_tokens": tokens,
+            # Bind only the inputs selected by this recipe. The witness hash
+            # already binds the complete held source, while unrelated
+            # annotations should not invalidate an unchanged projection.
+            "input_bindings": input_bindings,
         },
     )
     receipt = make_receipt(
