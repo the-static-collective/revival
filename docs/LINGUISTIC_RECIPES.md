@@ -49,8 +49,10 @@ The kernel v1 receipt remains unchanged.
 For a linguistic recipe, the `Transform` identity binds:
 
 - the complete recipe;
-- every source-anchored token;
-- every attached annotation used as potential compilation input.
+- each source token selected by that recipe;
+- the exact rendering input and origin selected for that token.
+
+The witness hash independently binds the complete held witness. Unrelated annotations therefore do not invalidate an unchanged recipe output.
 
 Therefore:
 
