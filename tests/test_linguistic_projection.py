@@ -80,6 +80,19 @@ class LinguisticProjectionTests(unittest.TestCase):
             second["receipt"]["projection_sha256"],
         )
 
+    def test_unrelated_annotation_does_not_invalidate_same_recipe(self):
+        a = self.load()
+        b = copy.deepcopy(a)
+        b["tokens"][0]["annotations"]["future_note"] = {
+            "value": "not selected by reader-demo",
+            "authority": "demo-only",
+        }
+
+        first = compile_linguistic_projection(a, "reader-demo")
+        second = compile_linguistic_projection(b, "reader-demo")
+
+        self.assertEqual(first["receipt"], second["receipt"])
+
     def test_source_mismatch_fails_closed(self):
         specimen = self.load()
         specimen["tokens"][0]["surface"] = "NOT-IN-WITNESS"
