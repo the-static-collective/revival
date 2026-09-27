@@ -198,7 +198,7 @@ def _whole_token_projection(
             pieces.append(part["surface"])
 
     if mode == "source":
-        return "/".join(pieces)
+        return decomposition["source_surface"]
     visible = [piece for piece in pieces if piece]
     return " + ".join(visible)
 
