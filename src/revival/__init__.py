@@ -11,6 +11,7 @@ from .kernel.v1 import KERNEL_VERSION, PRIMITIVES
 from .linguistic import compile_linguistic_projection, list_choices, list_recipes
 from .object_relations import build_object_relation_instrument, open_object_relation_room
 from .object_relations_atlas import build_object_relation_atlas_html
+from .world_places import build_world_places, build_world_places_html
 
 __all__ = [
     "KERNEL_VERSION",
@@ -21,6 +22,8 @@ __all__ = [
     "build_aleph_tav_instrument",
     "build_first_world",
     "build_first_world_html",
+    "build_world_places",
+    "build_world_places_html",
     "build_object_relation_atlas_html",
     "build_object_relation_instrument",
     "build_corpus",
