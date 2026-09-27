@@ -215,6 +215,58 @@ The Atlas is deterministic, local, dependency-free at runtime, and contains no n
 
 See [Curiosity Atlas](docs/CURIOSITY_ATLAS.md).
 
+## REAL FOOD: compile from a pinned linguistic corpus
+
+Revival 006 crosses the first real external source boundary.
+
+Instead of hand-authored demonstration token metadata, Revival can now adapt **Open Scriptures Hebrew Bible (OSHB) v2.2** Genesis 1:1 from pinned OSIS XML.
+
+The source is fixed to upstream release `v.2.2`, commit `6a5db284c715c18b239422e57bb89684e6a19f00`, and the specific `wlc/Gen.xml` Git blob recorded in the source manifest.
+
+Generate a Revival specimen:
+
+```bash
+python -m revival.adapters.oshb \
+  sources/oshb-v2.2/Gen.1.1.xml \
+  --manifest sources/oshb-v2.2/source.json \
+  --output /tmp/oshb-genesis-1-1.json
+```
+
+Then open the real OSHB record behind `אֱלֹהִ֑ים`:
+
+```bash
+python -m revival /tmp/oshb-genesis-1-1.json \
+  --recipe surface \
+  --open-token 01TyA \
+  --pretty
+```
+
+That room now carries actual upstream data:
+
+```text
+OSHB word id: 01TyA
+surface:      אֱלֹהִ֑ים
+lemma:        430
+morphology:   HNcmpa
+```
+
+Build it into the Atlas:
+
+```bash
+python -m revival /tmp/oshb-genesis-1-1.json \
+  --recipe surface \
+  --build-atlas /tmp/oshb-genesis-1-1.html \
+  --pretty
+```
+
+The Atlas exposes the OSHB record under **Declared layers** inside the word room.
+
+The adapter performs no Unicode normalization. It preserves OSHB's immutable word ids, raw word surfaces, lemma/morphology attributes, morpheme segmentation, source/license metadata, and the exact upstream pointers behind the fixture.
+
+The Revival textual witness is explicitly a **deterministic carrier derived from the pinned OSIS representation**: morpheme `/` markers are removed from display surfaces, OSIS segment text is attached to the preceding word, and U+0020 spaces are inserted between words. Those rules are in the adapter receipt rather than hidden.
+
+See [OSHB Adapter](docs/OSHB_ADAPTER.md) and [source attribution](sources/oshb-v2.2/ATTRIBUTION.md).
+
 ## What must survive every compilation
 
 Revival begins with six kernel primitives:
@@ -338,6 +390,7 @@ Adapters for Scripture Burrito, USFM/USX/USJ, TEI, Universal Dependencies, Text-
 | `src/revival/linguistic.py` | source-token anchoring and recipe-driven linguistic compilation |
 | `src/revival/curiosity.py` | replayable token curiosity rooms and relation doors |
 | `src/revival/atlas.py` | deterministic standalone walkable HTML Atlas |
+| `src/revival/adapters/oshb.py` | pinned OSHB OSIS → Revival source adapter |
 | `specimens/genesis-1-1.json` | original transformation specimen |
 | `specimens/genesis-1-1-linguistic.json` | custom-output linguistic specimen |
 | `tests/` | executable determinism, trace, delta, and ancestry claims |
@@ -346,6 +399,8 @@ Adapters for Scripture Burrito, USFM/USX/USJ, TEI, Universal Dependencies, Text-
 | `docs/PREFERENCE_PROFILES.md` | reader-choice contract and authority boundary |
 | `docs/CURIOSITY_ROOMS.md` | source-backed token rooms and traversal law |
 | `docs/CURIOSITY_ATLAS.md` | standalone walkable presentation contract |
+| `docs/OSHB_ADAPTER.md` | first real external linguistic source crossing |
+| `sources/oshb-v2.2/` | pinned Genesis 1:1 fixture, source manifest, attribution |
 | `docs/KERNEL_V1.md` | frozen kernel contract |
 | `docs/SCISSORS.md` | lawful kernel descent |
 
