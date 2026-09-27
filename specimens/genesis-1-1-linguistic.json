@@ -1,0 +1,115 @@
+{
+  "witness": {
+    "id": "genesis-1-1-hebrew-demo",
+    "locator": "Genesis 1:1",
+    "language": "he",
+    "script": "Hebr",
+    "text": "בְּרֵאשִׁית בָּרָא אֱלֹהִים אֵת הַשָּׁמַיִם וְאֵת הָאָרֶץ׃",
+    "source_note": "Demonstration witness held for the executable proof. Its use here does not assert textual-critical priority."
+  },
+  "tokens": [
+    {
+      "id": "g1",
+      "surface": "בְּרֵאשִׁית",
+      "annotations": {
+        "reader_demo": {
+          "value": "In the beginning",
+          "source": "Revival demonstration choice",
+          "authority": "demo-projection-only",
+          "note": "Illustrative wording, not a source or translation-authority claim."
+        }
+      }
+    },
+    {
+      "id": "g2",
+      "surface": "בָּרָא",
+      "annotations": {
+        "reader_demo": {
+          "value": "created",
+          "source": "Revival demonstration choice",
+          "authority": "demo-projection-only"
+        }
+      }
+    },
+    {
+      "id": "g3",
+      "surface": "אֱלֹהִים",
+      "annotations": {
+        "reader_demo": {
+          "value": "God",
+          "source": "Revival demonstration choice",
+          "authority": "demo-projection-only"
+        }
+      }
+    },
+    {
+      "id": "g4",
+      "surface": "אֵת",
+      "annotations": {
+        "reader_demo": {
+          "value": "",
+          "source": "Revival demonstration choice",
+          "authority": "demo-projection-only",
+          "note": "Explicitly omitted from this English-shaped projection."
+        }
+      }
+    },
+    {
+      "id": "g5",
+      "surface": "הַשָּׁמַיִם",
+      "annotations": {
+        "reader_demo": {
+          "value": "the heavens",
+          "source": "Revival demonstration choice",
+          "authority": "demo-projection-only"
+        }
+      }
+    },
+    {
+      "id": "g6",
+      "surface": "וְאֵת",
+      "annotations": {
+        "reader_demo": {
+          "value": "and",
+          "source": "Revival demonstration choice",
+          "authority": "demo-projection-only"
+        }
+      }
+    },
+    {
+      "id": "g7",
+      "surface": "הָאָרֶץ׃",
+      "annotations": {
+        "reader_demo": {
+          "value": "the earth.",
+          "source": "Revival demonstration choice",
+          "authority": "demo-projection-only"
+        }
+      }
+    }
+  ],
+  "recipes": [
+    {
+      "id": "surface",
+      "description": "Tokenized witness surface in source order.",
+      "mode": "text",
+      "field": "surface",
+      "separator": " "
+    },
+    {
+      "id": "unpointed",
+      "description": "Mechanical source-order projection with Unicode combining marks removed.",
+      "mode": "text",
+      "field": "unpointed",
+      "separator": " "
+    },
+    {
+      "id": "reader-demo",
+      "description": "Illustrative English-shaped output using declared demo wording and declared reordering.",
+      "mode": "text",
+      "field": "reader_demo",
+      "separator": " ",
+      "sequence": ["g1", "g3", "g2", "g4", "g5", "g6", "g7"]
+    }
+  ]
+}
