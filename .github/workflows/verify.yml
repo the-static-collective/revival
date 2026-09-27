@@ -23,3 +23,7 @@ jobs:
         run: python -m revival specimens/genesis-1-1-linguistic.json --recipe unpointed --pretty > /tmp/genesis-1-1.unpointed.json
       - name: Compile reader-demo Genesis 1:1
         run: python -m revival specimens/genesis-1-1-linguistic.json --recipe reader-demo --pretty > /tmp/genesis-1-1.reader-demo.json
+      - name: Inspect reader-demo choices
+        run: python -m revival specimens/genesis-1-1-linguistic.json --recipe reader-demo --list-choices --pretty > /tmp/genesis-1-1.choices.json
+      - name: Compile Elohim preference profile
+        run: python -m revival specimens/genesis-1-1-linguistic.json --recipe reader-demo --profile profiles/genesis-1-1-elohim.json --pretty > /tmp/genesis-1-1.elohim.json
