@@ -132,6 +132,58 @@ The held witness hash remains identical to the default `God` compilation. The tr
 
 See [Preference Profiles](docs/PREFERENCE_PROFILES.md).
 
+## Open a word
+
+Revival 004 makes the curiosity engine executable at token scale.
+
+Open the source-backed room behind the current rendering of `אֱלֹהִים`:
+
+```bash
+python -m revival specimens/genesis-1-1-linguistic.json \
+  --recipe reader-demo \
+  --open-token g3 \
+  --pretty
+```
+
+The room contains the exact held source token and span, its current rendering, available rendering alternatives, declared annotations, source-order neighbors, output-order neighbors, relation doors, and receipts.
+
+With the preference profile:
+
+```bash
+python -m revival specimens/genesis-1-1-linguistic.json \
+  --recipe reader-demo \
+  --profile profiles/genesis-1-1-elohim.json \
+  --open-token g3 \
+  --pretty
+```
+
+the room still opens on the same Hebrew source token, but its current compiled rendering is `Elohim`.
+
+The room also preserves two distinct neighborhoods:
+
+```text
+source order:  בָּרָא → אֱלֹהִים → אֵת
+output order:  In the beginning → God/Elohim → created
+```
+
+and exposes explicitly declared relation doors without treating those relations as source authority.
+
+This is the first small executable form of **worlds within the world**:
+
+```text
+word
+  ↓ open
+source + current rendering
+  ↓
+alternate renderings
+  ↓
+neighbors + relations
+  ↓
+more doors
+```
+
+See [Curiosity Rooms](docs/CURIOSITY_ROOMS.md).
+
 ## What must survive every compilation
 
 Revival begins with six kernel primitives:
@@ -253,12 +305,14 @@ Adapters for Scripture Burrito, USFM/USX/USJ, TEI, Universal Dependencies, Text-
 | `src/revival/kernel/v1.py` | frozen-generation identity, primitive types, hashes, receipts, scissors |
 | `src/revival/compiler.py` | original transform proof |
 | `src/revival/linguistic.py` | source-token anchoring and recipe-driven linguistic compilation |
+| `src/revival/curiosity.py` | replayable token curiosity rooms and relation doors |
 | `specimens/genesis-1-1.json` | original transformation specimen |
 | `specimens/genesis-1-1-linguistic.json` | custom-output linguistic specimen |
 | `tests/` | executable determinism, trace, delta, and ancestry claims |
 | `docs/VISION.md` | Bible-as-curiosity-engine / inhabitable-world direction |
 | `docs/LINGUISTIC_RECIPES.md` | current recipe contract |
 | `docs/PREFERENCE_PROFILES.md` | reader-choice contract and authority boundary |
+| `docs/CURIOSITY_ROOMS.md` | source-backed token rooms and traversal law |
 | `docs/KERNEL_V1.md` | frozen kernel contract |
 | `docs/SCISSORS.md` | lawful kernel descent |
 
