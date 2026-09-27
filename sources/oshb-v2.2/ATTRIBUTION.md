@@ -1,6 +1,6 @@
 # Open Scriptures Hebrew Bible attribution
 
-Revival's `Gen.1.1.xml` fixture contains a small excerpt adapted from the **Open Scriptures Hebrew Bible (OSHB) v2.2**, pinned to upstream commit:
+Revival's `Gen.1.1.xml`, `Gen.1.2.xml`, and `Gen.1.3.xml` fixtures contain small excerpts adapted from the **Open Scriptures Hebrew Bible (OSHB) v2.2**, pinned to upstream commit:
 
 `6a5db284c715c18b239422e57bb89684e6a19f00`
 
@@ -16,6 +16,6 @@ Required attribution from the upstream license:
 
 > Original work of the Open Scriptures Hebrew Bible available at https://github.com/openscriptures/morphhb
 
-The Revival fixture adds a standalone XML verse wrapper around the pinned `Gen.1.1` word and segment elements so the adapter can be tested without vendoring an entire biblical book.
+Each Revival fixture adds a standalone XML verse wrapper around pinned word and segment elements from Genesis 1:1-3 so the adapter and cross-passage corpus can be tested without vendoring an entire biblical book.
 
 Revival does not claim that OSHB is canonical, text-critically final, or linguistically infallible. It is an attributable external source layer.
