@@ -185,3 +185,18 @@ jobs:
           grep -q 'Semantic frame' /tmp/revival-object-relations.html
           grep -q 'PP-V-S-O' /tmp/revival-object-relations.html
           grep -q 'MACULA Hebrew Linguistic Datasets' /tmp/revival-object-relations.html
+      - name: Build Revival first world
+        run: |
+          python -m revival.first_world \
+            corpora/oshb-v2.2-genesis-opening.json \
+            --macula-xml sources/macula-hebrew/Gen.1.1-lowfat.xml \
+            --macula-manifest sources/macula-hebrew/source.json \
+            --output /tmp/revival-first-world.html \
+            --pretty > /tmp/revival-first-world.receipt.json
+      - name: Verify unified world surface
+        run: |
+          test -s /tmp/revival-first-world.html
+          grep -q 'Every object in this world knows where it came from.' /tmp/revival-first-world.html
+          grep -q 'Fog is a feature.' /tmp/revival-first-world.html
+          grep -q 'suppressed by the current projection' /tmp/revival-first-world.html
+          grep -q '"world_kind": "revival-first-world"' /tmp/revival-first-world.receipt.json
