@@ -2,6 +2,7 @@
 
 from .atlas import build_curiosity_atlas, build_curiosity_atlas_html
 from .compiler import compile_specimen
+from .corpus import build_corpus, lemma_occurrences, open_corpus_token_room
 from .curiosity import open_token_room
 from .kernel.v1 import KERNEL_VERSION, PRIMITIVES
 from .linguistic import compile_linguistic_projection, list_choices, list_recipes
@@ -11,7 +12,10 @@ __all__ = [
     "PRIMITIVES",
     "build_curiosity_atlas",
     "build_curiosity_atlas_html",
+    "build_corpus",
     "compile_specimen",
+    "lemma_occurrences",
+    "open_corpus_token_room",
     "open_token_room",
     "compile_linguistic_projection",
     "list_choices",
