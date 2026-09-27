@@ -36,9 +36,23 @@
       "surface": "אֱלֹהִים",
       "annotations": {
         "reader_demo": {
-          "value": "God",
-          "source": "Revival demonstration choice",
-          "authority": "demo-projection-only"
+          "default": "god",
+          "variants": [
+            {
+              "id": "god",
+              "value": "God",
+              "source": "Revival demonstration choice",
+              "authority": "demo-projection-only",
+              "note": "Illustrative English title rendering; not a translation-authority claim."
+            },
+            {
+              "id": "elohim",
+              "value": "Elohim",
+              "source": "Revival demonstration choice",
+              "authority": "demo-projection-only",
+              "note": "Illustrative transliterated-name preference; not a lexical or textual-authority claim."
+            }
+          ]
         }
       }
     },
@@ -109,7 +123,15 @@
       "mode": "text",
       "field": "reader_demo",
       "separator": " ",
-      "sequence": ["g1", "g3", "g2", "g4", "g5", "g6", "g7"]
+      "sequence": [
+        "g1",
+        "g3",
+        "g2",
+        "g4",
+        "g5",
+        "g6",
+        "g7"
+      ]
     }
   ]
 }
