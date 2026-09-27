@@ -67,6 +67,7 @@ def main() -> None:
             args.recipe,
             profile,
         )
+        args.build_atlas.parent.mkdir(parents=True, exist_ok=True)
         args.build_atlas.write_text(atlas_html, encoding="utf-8")
         result = {
             "atlas_output": str(args.build_atlas),
