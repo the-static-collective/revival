@@ -67,21 +67,42 @@ No descendant silently edits its parent and calls the history unchanged.
 
 The first executable proof is intentionally tiny: **Genesis 1:1**.
 
-The goal is not to settle translation or interpretation. It is to prove that one immutable witness can produce multiple deterministic projections while every loss or alteration is explicitly represented and the derivation is replayable.
-
-Planned proof:
+The goal is not to settle translation or interpretation. It proves that one held witness can produce multiple deterministic projections while every declared loss remains inspectable and the derivation is replayable.
 
 ```text
 Genesis 1:1 witness
         ↓
 declared transforms
+        ├── exact text
+        └── text without Unicode marks
         ↓
-multiple projections
+explicit deltas
         ↓
-flattening deltas
-        ↓
-replay receipt
+content-addressed receipts
 ```
+
+### Run it
+
+Requires Python 3.11+.
+
+```bash
+python -m pip install -e .
+python -m unittest discover -s tests -v
+python -m revival specimens/genesis-1-1.json --pretty
+```
+
+The second projection deliberately removes Unicode characters in General Category `M*` and records every removed code point, its original index, Unicode name, and category. The projection is allowed to lose information because the delta is not allowed to hide that loss.
+
+## Repository map
+
+| Path | Purpose |
+| --- | --- |
+| `src/revival/kernel/v1.py` | frozen-generation identity, primitive types, hashes, receipts, scissors |
+| `src/revival/compiler.py` | declared specimen transforms outside textual authority |
+| `specimens/genesis-1-1.json` | first held witness and transform declaration |
+| `tests/` | executable claims about determinism, witness preservation, loss, and ancestry |
+| `docs/KERNEL_V1.md` | kernel contract |
+| `docs/SCISSORS.md` | lawful kernel descent |
 
 ## Project boundary
 

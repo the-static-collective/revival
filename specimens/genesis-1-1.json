@@ -1,0 +1,20 @@
+{
+  "witness": {
+    "id": "genesis-1-1-hebrew-demo",
+    "locator": "Genesis 1:1",
+    "language": "he",
+    "script": "Hebr",
+    "text": "בְּרֵאשִׁית בָּרָא אֱלֹהִים אֵת הַשָּׁמַיִם וְאֵת הָאָרֶץ׃",
+    "source_note": "Demonstration witness for the executable proof. This held Unicode string is specimen identity, not a claim of textual-critical priority."
+  },
+  "transforms": [
+    {
+      "name": "exact",
+      "version": "1"
+    },
+    {
+      "name": "strip_unicode_marks",
+      "version": "1"
+    }
+  ]
+}
