@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 
 from .compiler import compile_specimen
+from .linguistic import compile_linguistic_projection, list_recipes
 
 
 def main() -> None:
@@ -16,10 +17,24 @@ def main() -> None:
     )
     parser.add_argument("specimen", type=Path, help="Path to a Revival specimen JSON file")
     parser.add_argument("--pretty", action="store_true", help="Pretty-print JSON output")
+    parser.add_argument(
+        "--recipe",
+        help="Compile one declared linguistic projection recipe instead of legacy transforms.",
+    )
+    parser.add_argument(
+        "--list-recipes",
+        action="store_true",
+        help="List linguistic recipes declared by the specimen.",
+    )
     args = parser.parse_args()
 
     specimen = json.loads(args.specimen.read_text(encoding="utf-8"))
-    result = compile_specimen(specimen)
+    if args.list_recipes:
+        result = {"recipes": list_recipes(specimen)}
+    elif args.recipe:
+        result = compile_linguistic_projection(specimen, args.recipe)
+    else:
+        result = compile_specimen(specimen)
     print(
         json.dumps(
             result,
