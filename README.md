@@ -373,6 +373,66 @@ The four projection experiments let a reader keep the marker visible, render it 
 
 See [Aleph-Tav Instrument](docs/ALEPH_TAV_INSTRUMENT.md).
 
+## Object Relations
+
+Revival 009 removes the remaining adjacency shortcut from the Aleph-Tav instrument.
+
+A pinned **MACULA Hebrew** Genesis 1:1 syntax layer is now aligned back to the existing OSHB witness before any object relation is admitted.
+
+For the first marker, Revival can now show:
+
+```text
+בָּרָ֣א
+   │
+   └─ אֵ֥ת → הַשָּׁמַ֖יִם
+```
+
+and for the second:
+
+```text
+בָּרָ֣א
+   │
+   └─ וְאֵ֥ת → הָאָֽרֶץ׃
+```
+
+The marked-phrase relation comes from MACULA's syntax tree—not from “whatever word happens to come next.”
+
+The same verb record also carries MACULA semantic-frame A1 targets for the heavens and earth heads. Revival keeps that semantic-frame evidence separate from the syntax-tree evidence even though they agree here.
+
+Inspect a source-backed object-relation room:
+
+```bash
+python -m revival.object_relations \
+  corpora/oshb-v2.2-genesis-opening.json \
+  --macula-xml sources/macula-hebrew/Gen.1.1-lowfat.xml \
+  --macula-manifest sources/macula-hebrew/source.json \
+  --locator Gen.1.1 \
+  --token 01vuQ \
+  --pretty
+```
+
+Build the walkable relation Atlas:
+
+```bash
+python -m revival.object_relations_atlas \
+  corpora/oshb-v2.2-genesis-opening.json \
+  --macula-xml sources/macula-hebrew/Gen.1.1-lowfat.xml \
+  --macula-manifest sources/macula-hebrew/source.json \
+  --output /tmp/revival-object-relations.html \
+  --pretty
+```
+
+Every relation door remains attributable to its layer:
+
+```text
+adjacency != syntax
+syntax != semantic frame
+semantic frame != theology
+agreement != identity
+```
+
+See [Object Relations](docs/OBJECT_RELATIONS.md) and [MACULA attribution](sources/macula-hebrew/ATTRIBUTION.md).
+
 ## What must survive every compilation
 
 Revival begins with six kernel primitives:
@@ -501,6 +561,9 @@ Adapters for Scripture Burrito, USFM/USX/USJ, TEI, Universal Dependencies, Text-
 | `src/revival/corpus_atlas.py` | walkable cross-passage Corpus Atlas |
 | `src/revival/aleph_tav.py` | OSHB morpheme decomposition + Aleph-Tav learning family |
 | `src/revival/aleph_tav_atlas.py` | walkable Aleph-Tav learning instrument |
+| `src/revival/adapters/macula.py` | pinned MACULA lowfat → OSHB-aligned relation adapter |
+| `src/revival/object_relations.py` | syntax/frame-backed object relation rooms |
+| `src/revival/object_relations_atlas.py` | walkable attributed object-relation Atlas |
 | `specimens/genesis-1-1.json` | original transformation specimen |
 | `specimens/genesis-1-1-linguistic.json` | custom-output linguistic specimen |
 | `tests/` | executable determinism, trace, delta, and ancestry claims |
@@ -512,7 +575,9 @@ Adapters for Scripture Burrito, USFM/USX/USJ, TEI, Universal Dependencies, Text-
 | `docs/OSHB_ADAPTER.md` | first real external linguistic source crossing |
 | `docs/LEMMA_DOORS.md` | cross-passage exact-lemma traversal law |
 | `docs/ALEPH_TAV_INSTRUMENT.md` | letters / reading / grammar / projection / interpretation separation |
+| `docs/OBJECT_RELATIONS.md` | syntax-backed object phrase and governing-verb relations |
 | `sources/oshb-v2.2/` | pinned Genesis 1:1-3 fixtures, source manifests, morphology-code authority, attribution |
+| `sources/macula-hebrew/` | pinned Genesis 1:1 syntax fixture, source manifest, attribution |
 | `corpora/oshb-v2.2-genesis-opening.json` | first multi-witness proof corpus |
 | `docs/KERNEL_V1.md` | frozen kernel contract |
 | `docs/SCISSORS.md` | lawful kernel descent |

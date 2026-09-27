@@ -137,3 +137,51 @@ jobs:
           grep -q 'direct object marker' /tmp/revival-aleph-tav.html
           grep -q 'OBJ→' /tmp/revival-aleph-tav.html
           grep -q 'not encoded here as the grammatical meaning' /tmp/revival-aleph-tav.html
+      - name: Open first MACULA-backed object relation
+        run: |
+          python -m revival.object_relations \
+            corpora/oshb-v2.2-genesis-opening.json \
+            --macula-xml sources/macula-hebrew/Gen.1.1-lowfat.xml \
+            --macula-manifest sources/macula-hebrew/source.json \
+            --locator Gen.1.1 \
+            --token 01vuQ \
+            --pretty > /tmp/revival-object-first.json
+      - name: Verify first actual object relation
+        run: |
+          grep -q '"oshb_token_id": "01Nvk"' /tmp/revival-object-first.json
+          grep -q '"oshb_token_ids":' /tmp/revival-object-first.json
+          grep -q '"01TSc"' /tmp/revival-object-first.json
+          grep -q '"clause_rule": "PP-V-S-O"' /tmp/revival-object-first.json
+          grep -q '"role": "A1"' /tmp/revival-object-first.json
+      - name: Open prefixed MACULA-backed object relation
+        run: |
+          python -m revival.object_relations \
+            corpora/oshb-v2.2-genesis-opening.json \
+            --macula-xml sources/macula-hebrew/Gen.1.1-lowfat.xml \
+            --macula-manifest sources/macula-hebrew/source.json \
+            --locator Gen.1.1 \
+            --token 01k5P \
+            --pretty > /tmp/revival-object-second.json
+      - name: Verify prefixed marker relation
+        run: |
+          grep -q '"oshb_component_index": 1' /tmp/revival-object-second.json
+          grep -q '"01nPh"' /tmp/revival-object-second.json
+          grep -q '"evidence_layer": "syntax tree"' /tmp/revival-object-second.json
+          grep -q '"evidence_layer": "semantic frame"' /tmp/revival-object-second.json
+      - name: Build object-relation Atlas
+        run: |
+          python -m revival.object_relations_atlas \
+            corpora/oshb-v2.2-genesis-opening.json \
+            --macula-xml sources/macula-hebrew/Gen.1.1-lowfat.xml \
+            --macula-manifest sources/macula-hebrew/source.json \
+            --output /tmp/revival-object-relations.html \
+            --pretty > /tmp/revival-object-relations.atlas.json
+      - name: Verify attributed relation surface
+        run: |
+          test -s /tmp/revival-object-relations.html
+          grep -q 'Object Relations' /tmp/revival-object-relations.html
+          grep -q 'From marker to actual attributed structure' /tmp/revival-object-relations.html
+          grep -q 'Syntax tree' /tmp/revival-object-relations.html
+          grep -q 'Semantic frame' /tmp/revival-object-relations.html
+          grep -q 'PP-V-S-O' /tmp/revival-object-relations.html
+          grep -q 'MACULA Hebrew Linguistic Datasets' /tmp/revival-object-relations.html
