@@ -1,0 +1,18 @@
+{
+  "source_id": "macula-hebrew:47db250:GEN 1:1",
+  "project": "MACULA Hebrew Linguistic Datasets",
+  "verse_id": "GEN 1:1",
+  "upstream_repository": "https://github.com/Clear-Bible/macula-hebrew",
+  "upstream_commit": "47db250bd55d0d8577f2a94fba114ef16c35b23c",
+  "upstream_path": "WLC/lowfat/01-Gen-001-lowfat.xml",
+  "upstream_blob_sha": "08829ff09c7c6b06f2ae01bc980fc182c1d1a4b8",
+  "fixture_sha256": "b5d9a6ba8a0642246342ae4b15e4d5456a8964141fceeaaf09b2a1078491223c",
+  "fixture_kind": "Exact GEN 1:1 sentence subtree from the pinned MACULA lowfat Genesis 1 file, wrapped in a chapter element.",
+  "retrieved_for_revival": "2026-09-27",
+  "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+  "attribution": "MACULA Hebrew Linguistic Datasets, available at https://github.com/Clear-Bible/macula-hebrew/",
+  "layers": {
+    "syntax": "MACULA/Westminster-derived lowfat syntax tree",
+    "semantic_frame": "MACULA verb frame annotation"
+  }
+}
