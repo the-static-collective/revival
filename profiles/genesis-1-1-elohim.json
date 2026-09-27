@@ -1,0 +1,8 @@
+{
+  "id": "elohim-demo",
+  "recipe": "reader-demo",
+  "choices": {
+    "g3": "elohim"
+  },
+  "note": "Demonstration preference profile. A user-facing choice is not a source or translation-authority claim."
+}

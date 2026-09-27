@@ -21,6 +21,13 @@ These rules apply to the whole repository.
 - A breaking kernel change creates a named descendant generation with explicit parent identity and rationale.
 - Never change an old kernel contract and continue calling it the same frozen generation.
 
+## Keep choice separate from authority
+
+- Reader preference selects among declared descendants; it does not rewrite a witness or linguistic layer.
+- A selectable rendering must retain its own declared provenance and authority boundary.
+- Unknown or undeclared preference values fail closed.
+- Preference profiles are presentation inputs, not evidence that a rendering is correct.
+
 ## Proof before claim
 
 - Executable behavior needs focused tests.

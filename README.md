@@ -91,6 +91,47 @@ A future real corpus adapter can provide attributable morphology, syntax, lemmas
 
 See [Linguistic Projection Recipes](docs/LINGUISTIC_RECIPES.md).
 
+## Choose your rendering without changing the source
+
+Revival 003 adds **preference profiles**.
+
+The same `reader-demo` recipe now exposes an attributable choice for `אֱלֹהִים`:
+
+```text
+default → God
+profile → Elohim
+```
+
+Inspect the available choices:
+
+```bash
+python -m revival specimens/genesis-1-1-linguistic.json \
+  --recipe reader-demo \
+  --list-choices \
+  --pretty
+```
+
+Compile with a preference profile:
+
+```bash
+python -m revival specimens/genesis-1-1-linguistic.json \
+  --recipe reader-demo \
+  --profile profiles/genesis-1-1-elohim.json \
+  --pretty
+```
+
+That produces:
+
+```text
+In the beginning Elohim created the heavens and the earth.
+```
+
+The held witness hash remains identical to the default `God` compilation. The transform and projection hashes change because the reader chose a different declared descendant.
+
+**Preference changes the Bible you read. It does not pretend the source changed.**
+
+See [Preference Profiles](docs/PREFERENCE_PROFILES.md).
+
 ## What must survive every compilation
 
 Revival begins with six kernel primitives:
@@ -217,6 +258,7 @@ Adapters for Scripture Burrito, USFM/USX/USJ, TEI, Universal Dependencies, Text-
 | `tests/` | executable determinism, trace, delta, and ancestry claims |
 | `docs/VISION.md` | Bible-as-curiosity-engine / inhabitable-world direction |
 | `docs/LINGUISTIC_RECIPES.md` | current recipe contract |
+| `docs/PREFERENCE_PROFILES.md` | reader-choice contract and authority boundary |
 | `docs/KERNEL_V1.md` | frozen kernel contract |
 | `docs/SCISSORS.md` | lawful kernel descent |
 
