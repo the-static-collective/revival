@@ -527,6 +527,54 @@ in the browser fragment.
 
 See [The World Has Places](docs/WORLD_PLACES.md).
 
+
+## Let The Places Earn Names
+
+Revival 012 lets addressable world anchors earn lexical names through an
+attributable proof layer.
+
+```bash
+python -m revival.earned_names \
+  corpora/oshb-v2.2-genesis-opening.json \
+  --macula-xml sources/macula-hebrew/Gen.1.1-lowfat.xml \
+  --macula-manifest sources/macula-hebrew/source.json \
+  --lexical-proof sources/oshb-hebrew-lexicon/genesis-opening-proof.json \
+  --output /tmp/revival-earned-names.html \
+  --pretty
+```
+
+The first bounded proof names five lexemes:
+
+```text
+H430   אֱלֹהִים   elohim
+H776   אֶרֶץ      erets
+H8064  שָׁמַיִם   shamayim
+H4325  מַיִם      mayim
+H216   אוֹר       or
+```
+
+Together they name nine existing morphology-backed anchors across Genesis
+1:1-3.
+
+The important bridge is `H776`: OSHB's `d/776` and `c/d/776` remain
+different declared lemma strings. Revival aligns their literal lemma and
+morphology morphemes, selects the noun component `776`, and only then opens
+the shared `erets` lexeme place. Prefixes remain visible in the receipt.
+
+The boundary stays hard:
+
+```text
+lexeme != sense
+sense != referent
+referent != person/place/object/event
+lexical gloss != translation verdict
+```
+
+So a name can become real while semantic type remains fog.
+
+See [Earned Names](docs/EARNED_NAMES.md) and
+[lexicon attribution](sources/oshb-hebrew-lexicon/ATTRIBUTION.md).
+
 ## What must survive every compilation
 
 Revival begins with six kernel primitives:
@@ -671,7 +719,7 @@ Adapters for Scripture Burrito, USFM/USX/USJ, TEI, Universal Dependencies, Text-
 | `docs/ALEPH_TAV_INSTRUMENT.md` | letters / reading / grammar / projection / interpretation separation |
 | `docs/OBJECT_RELATIONS.md` | syntax-backed object phrase and governing-verb relations |\n| `docs/FIRST_WORLD.md` | Revival 010 world-composition and epistemic-topology contract |
 | `sources/oshb-v2.2/` | pinned Genesis 1:1-3 fixtures, source manifests, morphology-code authority, attribution |
-| `sources/macula-hebrew/` | pinned Genesis 1:1 syntax fixture, source manifest, attribution |
+| `sources/macula-hebrew/` | pinned Genesis 1:1 syntax fixture, source manifest, attribution |\n| `sources/oshb-hebrew-lexicon/` | pinned lexical proof extract and Open Scriptures attribution |
 | `corpora/oshb-v2.2-genesis-opening.json` | first multi-witness proof corpus |
 | `docs/KERNEL_V1.md` | frozen kernel contract |
 | `docs/SCISSORS.md` | lawful kernel descent |

@@ -1,0 +1,67 @@
+{
+  "id": "oshb-hebrew-lexicon-genesis-opening-proof",
+  "kind": "curated-lexical-proof-extract",
+  "description": "Pinned proof extract for Revival 012. Augmented Strong identities are aligned through Open Scriptures Hebrew Lexicon AugIndex; compact lexical labels preserve Strong's public-domain lexical range without asserting passage-level sense or referent identity.",
+  "upstream": {
+    "project": "Open Scriptures Hebrew Lexicon",
+    "repository": "openscriptures/HebrewLexicon",
+    "commit": "21c9add13bc727d3a951361778e97e3ff7afd1ce",
+    "aug_index": {
+      "path": "AugIndex.xml",
+      "blob_sha": "7fdfaa8b9cf83e41c72cb58ac84494f74bd6296c"
+    },
+    "strong_dictionary": {
+      "path": "HebrewStrong.xml",
+      "blob_sha": "6ea1abdaf8c095a634097014dea43428ea5f358f"
+    },
+    "license": "CC BY 4.0 for Open Scriptures project files; Strong's Hebrew Dictionary text is public domain",
+    "attribution": "Open Scriptures Hebrew Bible Project"
+  },
+  "extraction_law": {
+    "alignment": "OSHB lemma morphemes are aligned to OSHB morphology morphemes before selecting the noun/verb lexical component. Prefix components are never silently stripped.",
+    "lexical_identity": "The selected augmented Strong component must exactly equal an entry's augmented_strong value.",
+    "name_boundary": "A lexeme name identifies a lexical entry, not the passage-level referent, theological sense, geographic place, person, object, or event."
+  },
+  "entries": [
+    {
+      "augmented_strong": "430",
+      "lexical_index_id": "arn",
+      "hebrew": "אֱלֹהִים",
+      "transliteration": "elohim",
+      "short_glosses": ["God", "god", "gods"],
+      "proof_note": "Lexical range only; passage-level referent and sense remain separate questions."
+    },
+    {
+      "augmented_strong": "776",
+      "lexical_index_id": "bep",
+      "hebrew": "אֶרֶץ",
+      "transliteration": "erets",
+      "short_glosses": ["earth", "land"],
+      "proof_note": "Lexical range only; does not itself establish a geographic entity."
+    },
+    {
+      "augmented_strong": "8064",
+      "lexical_index_id": "mzj",
+      "hebrew": "שָׁמַיִם",
+      "transliteration": "shamayim",
+      "short_glosses": ["heaven", "heavens", "sky"],
+      "proof_note": "Lexical range only; does not itself establish cosmological interpretation."
+    },
+    {
+      "augmented_strong": "4325",
+      "lexical_index_id": "gvs",
+      "hebrew": "מַיִם",
+      "transliteration": "mayim",
+      "short_glosses": ["water", "waters"],
+      "proof_note": "Lexical range only; does not itself establish a discrete object identity."
+    },
+    {
+      "augmented_strong": "216",
+      "lexical_index_id": "aja",
+      "hebrew": "אוֹר",
+      "transliteration": "or",
+      "short_glosses": ["light"],
+      "proof_note": "Lexical range only; does not itself establish what physical or symbolic light is intended."
+    }
+  ]
+}
