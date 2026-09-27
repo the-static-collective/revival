@@ -217,3 +217,23 @@ jobs:
           grep -q 'place != referent' /tmp/revival-world-places.html
           grep -q '"place_count":' /tmp/revival-world-places.receipt.json
           grep -q '"world_kind": "revival-world-places"' /tmp/revival-world-places.receipt.json
+      - name: Build Revival earned names world
+        run: |
+          python -m revival.earned_names \
+            corpora/oshb-v2.2-genesis-opening.json \
+            --macula-xml sources/macula-hebrew/Gen.1.1-lowfat.xml \
+            --macula-manifest sources/macula-hebrew/source.json \
+            --lexical-proof sources/oshb-hebrew-lexicon/genesis-opening-proof.json \
+            --output /tmp/revival-earned-names.html \
+            --pretty > /tmp/revival-earned-names.receipt.json
+      - name: Verify earned lexical names
+        run: |
+          test -s /tmp/revival-earned-names.html
+          grep -q 'Let The Places Earn Names' /tmp/revival-earned-names.html
+          grep -q 'אֱלֹהִים' /tmp/revival-earned-names.html
+          grep -q 'אֶרֶץ' /tmp/revival-earned-names.html
+          grep -q 'שָׁמַיִם' /tmp/revival-earned-names.html
+          grep -q 'lexeme != sense != referent != person/place/object/event' /tmp/revival-earned-names.html
+          grep -q '"lexeme_count": 5' /tmp/revival-earned-names.receipt.json
+          grep -q '"named_anchor_count": 9' /tmp/revival-earned-names.receipt.json
+          grep -q '"world_kind": "revival-earned-names-world"' /tmp/revival-earned-names.receipt.json
