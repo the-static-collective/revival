@@ -200,3 +200,20 @@ jobs:
           grep -q 'Fog is a feature.' /tmp/revival-first-world.html
           grep -q 'suppressed by the current projection' /tmp/revival-first-world.html
           grep -q '"world_kind": "revival-first-world"' /tmp/revival-first-world.receipt.json
+      - name: Build Revival world places
+        run: |
+          python -m revival.world_places \
+            corpora/oshb-v2.2-genesis-opening.json \
+            --macula-xml sources/macula-hebrew/Gen.1.1-lowfat.xml \
+            --macula-manifest sources/macula-hebrew/source.json \
+            --output /tmp/revival-world-places.html \
+            --pretty > /tmp/revival-world-places.receipt.json
+      - name: Verify addressable world surface
+        run: |
+          test -s /tmp/revival-world-places.html
+          grep -q 'The World Has Places' /tmp/revival-world-places.html
+          grep -q 'revival://oshb-v2.2-genesis-opening' /tmp/revival-world-places.html
+          grep -q 'Semantic type: fog by default.' /tmp/revival-world-places.html
+          grep -q 'place != referent' /tmp/revival-world-places.html
+          grep -q '"place_count":' /tmp/revival-world-places.receipt.json
+          grep -q '"world_kind": "revival-world-places"' /tmp/revival-world-places.receipt.json
