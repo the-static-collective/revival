@@ -19,3 +19,7 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Replay Genesis 1:1
         run: python -m revival specimens/genesis-1-1.json --pretty > /tmp/genesis-1-1.receipt.json
+      - name: Compile unpointed Genesis 1:1
+        run: python -m revival specimens/genesis-1-1-linguistic.json --recipe unpointed --pretty > /tmp/genesis-1-1.unpointed.json
+      - name: Compile reader-demo Genesis 1:1
+        run: python -m revival specimens/genesis-1-1-linguistic.json --recipe reader-demo --pretty > /tmp/genesis-1-1.reader-demo.json
