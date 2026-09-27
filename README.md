@@ -1,37 +1,108 @@
 # Revival
 
-> **A provenance-preserving compiler for Scripture: immutable witnesses in, replayable scholarly and creative projections out.**
+> **A source-backed custom Bible compiler. Choose how Scripture is rendered, explored, and eventually inhabited without losing the path back to its witnesses and the choices that produced the view.**
 
-Revival asks a narrow question with large consequences:
+Revival treats the Bible as a **curiosity engine**.
 
-**How far can a text lawfully transform while its ancestry remains inspectable?**
+The goal is not one more fixed translation. The goal is a source-backed kernel from which people can compile different linguistic outputs, scholarly views, creative representations, and eventually **inhabitable worlds and worlds within that world**.
 
-A witness may produce linguistic, scholarly, computational, visual, or creative descendants. Those descendants may be useful and radically different. They may not silently impersonate their ancestor.
+```text
+source-backed Bible kernel
+          ↓
+ attributable linguistic layers
+          ↓
+   your projection recipe
+          ↓
+      compiled Bible
+          ↓
+    trace + delta + receipt
+```
+
+**Provenance is the trust floor, not the product.**
+
+It exists so the projections can go farther.
+
+## The Revival part
+
+One person may want source order.
+
+Another may want readable English.
+
+Another may want names transliterated instead of translated, morphology exposed, grammatical operators retained, or ambiguities left visibly unresolved.
+
+Another may want to enter Scripture through a person, place, object, journey, conversation, sound, room, city, wilderness, or reconstructed world.
+
+Those can all be different descendants of the same source-backed material.
+
+They do not have to look alike.
+
+They do have to remain attributable.
+
+> **The Bible stops being only a fixed presentation to consume and becomes a source-grounded world you can continually re-enter from different directions.**
+
+See [the fuller vision](docs/VISION.md).
+
+## Try the executable proof
+
+Requires Python 3.11+.
+
+```bash
+python -m pip install -e .
+python -m unittest discover -s tests -v
+
+# See the available Genesis 1:1 compilation recipes.
+python -m revival specimens/genesis-1-1-linguistic.json --list-recipes --pretty
+
+# Compile a mechanical unpointed Hebrew projection.
+python -m revival specimens/genesis-1-1-linguistic.json --recipe unpointed --pretty
+
+# Compile an illustrative English-shaped reader projection.
+python -m revival specimens/genesis-1-1-linguistic.json --recipe reader-demo --pretty
+```
+
+The `reader-demo` deliberately demonstrates the important behavior rather than claiming translation authority:
+
+- its wording is explicitly marked **demo-projection-only**;
+- it reorders declared source tokens;
+- it explicitly renders one source token as empty;
+- every output item retains the exact source token and character span behind it;
+- the delta records the reordering and omission;
+- the receipt changes when a wording choice changes while the witness identity stays the same.
+
+Its current output is:
+
+```text
+In the beginning God created the heavens and the earth.
+```
+
+That sentence is **a declared demonstration projection**, not a claim that Revival has established a preferred English translation.
+
+## Same witness, different Bible view
+
+Revival 002 currently proves three recipes over the same held Genesis 1:1 specimen:
+
+| Recipe | What it demonstrates |
+| --- | --- |
+| `surface` | exact token surfaces in source order |
+| `unpointed` | a mechanical projection removing Unicode combining marks |
+| `reader-demo` | declared wording, reordering, omission, and token-level trace |
+
+A future real corpus adapter can provide attributable morphology, syntax, lemmas, discourse relations, textual witnesses, or other layers. Projection recipes can then choose how those distinctions appear—or remain unresolved—without moving that domain knowledge into the frozen kernel.
+
+See [Linguistic Projection Recipes](docs/LINGUISTIC_RECIPES.md).
+
+## What must survive every compilation
+
+Revival begins with six kernel primitives:
 
 ```text
 WITNESS
-   ↓
 ANNOTATION
-   ↓
 TRANSFORM
-   ↓
 PROJECTION
-   ↓
 DELTA
-   ↓
 RECEIPT
 ```
-
-## Kernel law
-
-Revival begins with six primitives:
-
-- **WITNESS** — held source material with stable identity.
-- **ANNOTATION** — attributable claims about a witness without rewriting it.
-- **TRANSFORM** — an explicit operation applied to declared inputs.
-- **PROJECTION** — a derived view intended for a particular use.
-- **DELTA** — what changed, collapsed, disappeared, or was introduced.
-- **RECEIPT** — replay evidence tying declared inputs to declared outputs.
 
 The distinctions are constitutional:
 
@@ -45,11 +116,65 @@ annotation  != interpretation
 projection  != witness
 ```
 
+A readable output can be radically different from its source carrier.
+
+That is allowed.
+
+What is not allowed is silently forgetting **how** it became different.
+
+## Current executable chain
+
+```text
+held Genesis 1:1 witness
+        ↓
+source-anchored tokens
+        ↓
+declared annotations
+        ↓
+chosen linguistic recipe
+        ↓
+compiled text
+        ↓
+token-level source trace
+        ↓
+explicit delta
+        ↓
+content-addressed receipt
+```
+
+The compiler fails closed when declared token surfaces no longer anchor into the held witness.
+
+A changed annotation leaves the witness hash unchanged while changing the transform and projection receipt hashes.
+
+That is the first executable form of the project's actual promise:
+
+> **Different Bible outputs can share a source without pretending to share every linguistic decision.**
+
+## Worlds within the world
+
+The linguistic compiler is only the first projection surface.
+
+Revival is designed so the same source-backed kernel can eventually feed:
+
+- interlinear and morphology-forward Bibles;
+- readable or intentionally source-shaped language;
+- character, relation, dialogue, object, and place views;
+- maps and timelines;
+- visual and phonographic projections;
+- children's exploratory surfaces;
+- reconstructed rooms and environments;
+- playable encounters;
+- narrative worlds whose objects can lead back to passages, annotations, evidence, and unresolved disagreement.
+
+A game, room, map, song, or reconstructed scene may become a Revival projection.
+
+It does not become a source witness by being compelling.
+
 ## Freeze does not mean stop
 
-A frozen kernel is immutable ancestry, not the end of development.
+Kernel generations are immutable ancestry.
 
-When the kernel needs to evolve, Revival uses **scissors**: cut forward into a named descendant contract while preserving the prior kernel exactly as historical ancestry.
+When the kernel itself must evolve, Revival uses **scissors**: create a named descendant contract while preserving the prior generation exactly.
 
 ```text
 kernel v1
@@ -61,54 +186,39 @@ kernel v1
        kernel v2
 ```
 
-No descendant silently edits its parent and calls the history unchanged.
+Development itself keeps provenance.
 
-## Genesis specimen
+See [Scissors](docs/SCISSORS.md).
 
-The first executable proof is intentionally tiny: **Genesis 1:1**.
+## Project boundary
 
-The goal is not to settle translation or interpretation. It proves that one held witness can produce multiple deterministic projections while every declared loss remains inspectable and the derivation is replayable.
+Revival does **not** decide:
 
-```text
-Genesis 1:1 witness
-        ↓
-declared transforms
-        ├── exact text
-        └── text without Unicode marks
-        ↓
-explicit deltas
-        ↓
-content-addressed receipts
-```
+- biblical canon;
+- textual-critical priority;
+- translation quality;
+- theology;
+- historical truth;
+- whether a reconstruction or interpretation should be accepted.
 
-### Run it
+It provides machinery for those materials and decisions to remain distinguishable and inspectable.
 
-Requires Python 3.11+.
-
-```bash
-python -m pip install -e .
-python -m unittest discover -s tests -v
-python -m revival specimens/genesis-1-1.json --pretty
-```
-
-The second projection deliberately removes Unicode characters in General Category `M*` and records every removed code point, its original index, Unicode name, and category. The projection is allowed to lose information because the delta is not allowed to hide that loss.
+Adapters for Scripture Burrito, USFM/USX/USJ, TEI, Universal Dependencies, Text-Fabric, BHSA, MACULA, OSHB, and other ecosystems belong outside the frozen kernel.
 
 ## Repository map
 
 | Path | Purpose |
 | --- | --- |
 | `src/revival/kernel/v1.py` | frozen-generation identity, primitive types, hashes, receipts, scissors |
-| `src/revival/compiler.py` | declared specimen transforms outside textual authority |
-| `specimens/genesis-1-1.json` | first held witness and transform declaration |
-| `tests/` | executable claims about determinism, witness preservation, loss, and ancestry |
-| `docs/KERNEL_V1.md` | kernel contract |
+| `src/revival/compiler.py` | original transform proof |
+| `src/revival/linguistic.py` | source-token anchoring and recipe-driven linguistic compilation |
+| `specimens/genesis-1-1.json` | original transformation specimen |
+| `specimens/genesis-1-1-linguistic.json` | custom-output linguistic specimen |
+| `tests/` | executable determinism, trace, delta, and ancestry claims |
+| `docs/VISION.md` | Bible-as-curiosity-engine / inhabitable-world direction |
+| `docs/LINGUISTIC_RECIPES.md` | current recipe contract |
+| `docs/KERNEL_V1.md` | frozen kernel contract |
 | `docs/SCISSORS.md` | lawful kernel descent |
-
-## Project boundary
-
-Revival is not a truth engine and does not decide textual canon, translation quality, theology, or historical authority.
-
-Adapters for formats and corpora belong **outside** the frozen kernel. Scripture Burrito, USFM/USX/USJ, TEI, Universal Dependencies, Text-Fabric, BHSA, MACULA, OSHB, and other ecosystems may become adapters or inputs without becoming kernel law.
 
 ## Static Collective
 

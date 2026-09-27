@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "revival-scripture"
 version = "0.1.0"
-description = "A provenance-preserving compiler for Scripture."
+description = "A source-backed custom Bible compiler with replayable linguistic projections."
 requires-python = ">=3.11"
 dependencies = []
 
