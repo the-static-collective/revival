@@ -34,6 +34,14 @@ class Witness:
 
 
 @dataclass(frozen=True)
+class Annotation:
+    target_sha256: str
+    kind: str
+    content: Any
+    author: str | None = None
+
+
+@dataclass(frozen=True)
 class Transform:
     name: str
     version: str
