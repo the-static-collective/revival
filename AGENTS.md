@@ -44,6 +44,16 @@ These rules apply to the whole repository.
 - A rendering-choice preview must not mutate an accepted compilation or its receipt.
 - The Atlas may compose room receipts; it does not replace them.
 
+## Keep external source crossings explicit
+
+- External corpora belong behind adapters, never inside frozen kernel law.
+- Pin external corpus versions/commits when they become executable evidence.
+- Preserve upstream stable ids when their semantics require identity continuity.
+- Preserve license and attribution metadata with redistributed or derived source material.
+- Do not Unicode-normalize OSHB source text; its upstream project explicitly warns against normalization.
+- Any adapter transformation from source representation to Revival carrier must be declared and receipted.
+- Source-backed means attributable to a source; it does not mean infallible, canonical, or interpretation-free.
+
 ## Proof before claim
 
 - Executable behavior needs focused tests.
