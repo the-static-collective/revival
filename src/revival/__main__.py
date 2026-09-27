@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 
 from .compiler import compile_specimen
+from .curiosity import open_token_room
 from .linguistic import compile_linguistic_projection, list_choices, list_recipes
 
 
@@ -36,11 +37,29 @@ def main() -> None:
         type=Path,
         help="Preference profile JSON used with --recipe.",
     )
+    parser.add_argument(
+        "--open-token",
+        help="Open one emitted source token as a curiosity room; requires --recipe.",
+    )
     args = parser.parse_args()
 
     specimen = json.loads(args.specimen.read_text(encoding="utf-8"))
     if args.list_recipes:
         result = {"recipes": list_recipes(specimen)}
+    elif args.open_token:
+        if not args.recipe:
+            parser.error("--open-token requires --recipe")
+        profile = (
+            json.loads(args.profile.read_text(encoding="utf-8"))
+            if args.profile
+            else None
+        )
+        result = open_token_room(
+            specimen,
+            args.recipe,
+            args.open_token,
+            profile,
+        )
     elif args.list_choices:
         if not args.recipe:
             parser.error("--list-choices requires --recipe")

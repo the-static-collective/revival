@@ -27,3 +27,9 @@ jobs:
         run: python -m revival specimens/genesis-1-1-linguistic.json --recipe reader-demo --list-choices --pretty > /tmp/genesis-1-1.choices.json
       - name: Compile Elohim preference profile
         run: python -m revival specimens/genesis-1-1-linguistic.json --recipe reader-demo --profile profiles/genesis-1-1-elohim.json --pretty > /tmp/genesis-1-1.elohim.json
+      - name: Open default Elohim token room
+        run: python -m revival specimens/genesis-1-1-linguistic.json --recipe reader-demo --open-token g3 --pretty > /tmp/genesis-1-1.g3-room.json
+      - name: Open preferred Elohim token room
+        run: python -m revival specimens/genesis-1-1-linguistic.json --recipe reader-demo --profile profiles/genesis-1-1-elohim.json --open-token g3 --pretty > /tmp/genesis-1-1.g3-elohim-room.json
+      - name: Traverse relation destination room
+        run: python -m revival specimens/genesis-1-1-linguistic.json --recipe reader-demo --open-token g2 --pretty > /tmp/genesis-1-1.g2-room.json

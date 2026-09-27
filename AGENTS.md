@@ -28,6 +28,14 @@ These rules apply to the whole repository.
 - Unknown or undeclared preference values fail closed.
 - Preference profiles are presentation inputs, not evidence that a rendering is correct.
 
+## Keep traversal attributable
+
+- A curiosity room is an inspection projection, not a source witness.
+- A relation door must retain the authority and provenance of the layer that declared it.
+- Source order and projection order remain distinct when a projection reorders tokens.
+- Unrelated relations should not invalidate an unchanged local room.
+- A compelling room, graph, map, game, or reconstructed world does not acquire canon or truth authority by being explorable.
+
 ## Proof before claim
 
 - Executable behavior needs focused tests.
