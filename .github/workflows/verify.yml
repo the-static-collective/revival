@@ -99,3 +99,41 @@ jobs:
           grep -q 'Dangerous Lemma Doors' /tmp/revival-genesis-opening.html
           grep -q 'Gen.1.2::01x9c' /tmp/revival-genesis-opening.html
           grep -q 'Gen.1.3::01JM7' /tmp/revival-genesis-opening.html
+      - name: Build Aleph-Tav instrument data
+        run: |
+          python -m revival.aleph_tav \
+            corpora/oshb-v2.2-genesis-opening.json \
+            --pretty > /tmp/revival-aleph-tav.json
+      - name: Verify earned 853 and c/853 family bridge
+        run: |
+          grep -q '"token_id": "01vuQ"' /tmp/revival-aleph-tav.json
+          grep -q '"token_id": "01k5P"' /tmp/revival-aleph-tav.json
+          grep -q '"declared_lemma": "853"' /tmp/revival-aleph-tav.json
+          grep -q '"declared_lemma": "c/853"' /tmp/revival-aleph-tav.json
+          grep -q '"particle_type": "direct object marker"' /tmp/revival-aleph-tav.json
+      - name: Open prefixed Aleph-Tav room
+        run: |
+          python -m revival.aleph_tav \
+            corpora/oshb-v2.2-genesis-opening.json \
+            --locator Gen.1.1 \
+            --token 01k5P \
+            --pretty > /tmp/revival-aleph-tav-prefixed.json
+      - name: Verify morpheme decomposition stays explicit
+        run: |
+          grep -q '"lemma": "c"' /tmp/revival-aleph-tav-prefixed.json
+          grep -q '"lemma": "853"' /tmp/revival-aleph-tav-prefixed.json
+          grep -q '"part_of_speech": "Conjunction"' /tmp/revival-aleph-tav-prefixed.json
+          grep -q '"particle_type": "direct object marker"' /tmp/revival-aleph-tav-prefixed.json
+      - name: Build walkable Aleph-Tav Atlas
+        run: |
+          python -m revival.aleph_tav_atlas \
+            corpora/oshb-v2.2-genesis-opening.json \
+            --output /tmp/revival-aleph-tav.html \
+            --pretty > /tmp/revival-aleph-tav.atlas.json
+      - name: Verify Aleph-Tav learning surface
+        run: |
+          test -s /tmp/revival-aleph-tav.html
+          grep -q 'Aleph/Tav Instrument' /tmp/revival-aleph-tav.html
+          grep -q 'direct object marker' /tmp/revival-aleph-tav.html
+          grep -q 'OBJ→' /tmp/revival-aleph-tav.html
+          grep -q 'not encoded here as the grammatical meaning' /tmp/revival-aleph-tav.html

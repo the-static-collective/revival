@@ -62,6 +62,15 @@ These rules apply to the whole repository.
 - Multi-witness corpus state gets corpus receipts; never impersonate a corpus as one kernel witness.
 - Every cross-passage door must retain destination witness, locator, token id, source surface, and source-layer authority.
 
+## Keep learning layers distinct
+
+- Written letters, learner pronunciation hints, morphology, translation choices, and interpretation are distinct layers.
+- A derived morpheme family may connect exact components only through an explicit decomposition rule; it must not rewrite upstream lemma identity.
+- The Aleph-Tav instrument's `et` reading is pedagogical metadata, not OSHB source data.
+- A hidden-marker projection is a visibility experiment, not evidence that a particular translation should omit the marker.
+- The first/last-letter observation belongs to an interpretive layer and must not be promoted into direct-object-marker grammar.
+- Immediate-next-token context in Revival 008 is not a full syntax parse.
+
 ## Proof before claim
 
 - Executable behavior needs focused tests.
