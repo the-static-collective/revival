@@ -159,6 +159,7 @@ header {{ border-bottom:1px solid #59564e; padding-bottom:16px; }}
 <div class="rendered" id="rendered"></div>
 <div class="meta" id="span"></div>
 <p class="preview" id="preview" hidden></p>
+<h3>Declared layers</h3><pre id="layers"></pre>
 <h3>Rendering doors</h3><div class="doors" id="choices"></div>
 <h3>Source neighbors</h3><div class="doors" id="source-neighbors"></div>
 <h3>Compiled neighbors</h3><div class="doors" id="output-neighbors"></div>
@@ -268,6 +269,7 @@ header {{ border-bottom:1px solid #59564e; padding-bottom:16px; }}
       "token " + tokenId + " · source span " +
       room.token.source_span[0] + ":" + room.token.source_span[1];
     el("origin").textContent = JSON.stringify(room.token.current_origin, null, 2);
+    el("layers").textContent = JSON.stringify(room.token.annotations, null, 2);
     el("room-receipt").textContent =
       "projection " + roomReceipts[tokenId].projection_sha256;
     el("atlas-receipt").textContent =
