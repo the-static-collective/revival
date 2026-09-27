@@ -43,3 +43,23 @@ jobs:
           test -s /tmp/genesis-1-1-elohim.html
           grep -q "Curiosity Atlas" /tmp/genesis-1-1.html
           grep -q "revival-data" /tmp/genesis-1-1.html
+      - name: Adapt pinned OSHB Genesis 1:1
+        run: |
+          python -m revival.adapters.oshb \
+            sources/oshb-v2.2/Gen.1.1.xml \
+            --manifest sources/oshb-v2.2/source.json \
+            --output /tmp/oshb-genesis-1-1.json
+      - name: Compile real OSHB source-backed verse
+        run: python -m revival /tmp/oshb-genesis-1-1.json --recipe unpointed --pretty > /tmp/oshb-genesis-1-1.unpointed.json
+      - name: Open real OSHB Elohim room
+        run: python -m revival /tmp/oshb-genesis-1-1.json --recipe surface --open-token 01TyA --pretty > /tmp/oshb-genesis-1-1.01TyA.json
+      - name: Build real-food Curiosity Atlas
+        run: python -m revival /tmp/oshb-genesis-1-1.json --recipe surface --build-atlas /tmp/oshb-genesis-1-1.html --pretty > /tmp/oshb-genesis-1-1.atlas.json
+      - name: Verify real linguistic record reached the world
+        run: |
+          test -s /tmp/oshb-genesis-1-1.html
+          grep -q '"external_word_id": "01TyA"' /tmp/oshb-genesis-1-1.01TyA.json
+          grep -q '"lemma": "430"' /tmp/oshb-genesis-1-1.01TyA.json
+          grep -q '"morph": "HNcmpa"' /tmp/oshb-genesis-1-1.01TyA.json
+          grep -q 'Declared layers' /tmp/oshb-genesis-1-1.html
+          grep -q 'HNcmpa' /tmp/oshb-genesis-1-1.html
