@@ -575,6 +575,10 @@ So a name can become real while semantic type remains fog.
 See [Earned Names](docs/EARNED_NAMES.md) and
 [lexicon attribution](sources/oshb-hebrew-lexicon/ATTRIBUTION.md).
 
+## A read-only Jubilee Scripture door
+
+[Jubilee Scripture Door](docs/JUBILEE_SCRIPTURE_DOOR.md) exports a genuinely built Genesis world address, its receipts, byte digests and source attribution for explicit offline inspection. Unsupported themes remain unresolved and withdrawn tags cannot navigate. This owner-local export leaves the frozen kernel and source witnesses unchanged.
+
 ## What must survive every compilation
 
 Revival begins with six kernel primitives:
