@@ -25,6 +25,9 @@ EXPECTED_LENSES = 7
 OWNER_KEYS = {"id", "name", "repository", "commit", "readme", "role", "question", "authority"}
 LENS_KEYS = {"id", "name", "prompt", "nextGate"}
 HOLD = "SPECULATIVE_HOLD_NO_ACTION"
+ALLOWED_GATES = {"CAREGIVER_OR_RECIPIENT_CONSENT", "INDEPENDENT_HUMAN_REVIEW",
+                 "SOURCE_OWNER_ADMISSION", "PARTICIPANT_CHOICE", "RECIPIENT_WITNESS",
+                 "SUCCESSOR_SELF_GOVERNANCE", "NO_PENALTY_REFUSAL"}
 
 
 def _exact(value: object, names: set[str]) -> bool:
@@ -84,7 +87,7 @@ def load_manifest(path: Path) -> dict[str, Any]:
             or len(lens["prompt"]) > 350
             or lens["prompt"].count("{left}") != 1
             or lens["prompt"].count("{right}") != 1
-            or not re.fullmatch("[A-Z_]{8,40}", lens["nextGate"])):
+            or lens["nextGate"] not in ALLOWED_GATES):
             raise ValueError("Invalid or unbounded lens")
         lens_ids.add(lens["id"])
     if not _exact(result["rights"], {"scriptureAttribution", "ownerDescriptions"}):
