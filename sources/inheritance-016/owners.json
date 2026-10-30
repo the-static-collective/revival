@@ -1,0 +1,230 @@
+{
+  "schema": "revival/inheritance-sources-v0",
+  "edition": "REVIVAL-016-2026-10-29",
+  "purpose": "A consent-respecting, playful curated source constellation adjacent to Revival's exact Genesis world, never a Scripture source or theological claim.",
+  "sourceBoundary": "NON_SCRIPTURAL_OWNER_READMES_NOT_BIBLE_WITNESSES",
+  "authority": "SOURCE_PINS_AS_EDITORIAL_INPUT_ONLY",
+  "owners": [
+    {
+      "id": "nourish",
+      "name": "Nourish Kids",
+      "repository": "the-static-collective/Nourish-Kids",
+      "commit": "beba8b81f9ec2d71ee9dac3e7a48fef667179df5",
+      "readme": "README.md",
+      "role": "need",
+      "question": "What is concretely missing from a chosen meal?",
+      "authority": "EDITORIAL_CANDIDATE_NOT_SOURCE_WITNESS"
+    },
+    {
+      "id": "banana",
+      "name": "NanaSpork",
+      "repository": "the-static-collective/BananaSpork",
+      "commit": "f4c4067b5896eb5eb20a7498f89da38f04731d73",
+      "readme": "README.md",
+      "role": "consent",
+      "question": "What must be held until a real steward authorizes action?",
+      "authority": "EDITORIAL_CANDIDATE_NOT_SOURCE_WITNESS"
+    },
+    {
+      "id": "attendant",
+      "name": "JAR;VIS",
+      "repository": "the-static-collective/JAR-VIS",
+      "commit": "206c23f15510961976db7e89df433c124f2ea83a",
+      "readme": "README.md",
+      "role": "attention",
+      "question": "Which unfulfilled human gate deserves attention?",
+      "authority": "EDITORIAL_CANDIDATE_NOT_SOURCE_WITNESS"
+    },
+    {
+      "id": "planning",
+      "name": "planZ",
+      "repository": "the-static-collective/planZ",
+      "commit": "5b6df7fb2a3a0c57d0fff8381108589ec2765a94",
+      "readme": "README.md",
+      "role": "plan",
+      "question": "Which plan would leave another person more capable?",
+      "authority": "EDITORIAL_CANDIDATE_NOT_SOURCE_WITNESS"
+    },
+    {
+      "id": "composition",
+      "name": "CANNON",
+      "repository": "the-static-collective/CANNON",
+      "commit": "62a557389013155c07e4d98578cbfb560f5f59c5",
+      "readme": "README.md",
+      "role": "compose",
+      "question": "Which independently verified capabilities can compose?",
+      "authority": "EDITORIAL_CANDIDATE_NOT_SOURCE_WITNESS"
+    },
+    {
+      "id": "relations",
+      "name": "Dogram",
+      "repository": "the-static-collective/Dogram",
+      "commit": "551b5f9df18f17ec69b452ddcdff01718e0ff771",
+      "readme": "README.md",
+      "role": "math",
+      "question": "Which relationships or constraints can be checked mathematically?",
+      "authority": "EDITORIAL_CANDIDATE_NOT_SOURCE_WITNESS"
+    },
+    {
+      "id": "handoff",
+      "name": "reLATTE",
+      "repository": "the-static-collective/reLATTE",
+      "commit": "39038d66b15f43559c48c7da8b8a40a76b883ff0",
+      "readme": "README.md",
+      "role": "transport",
+      "question": "What can cross without importing the sender's authority?",
+      "authority": "EDITORIAL_CANDIDATE_NOT_SOURCE_WITNESS"
+    },
+    {
+      "id": "memory",
+      "name": "Jubilee Engine VM",
+      "repository": "the-static-collective/Jubilee-Engine-VM",
+      "commit": "ec74819addeb41ebccf1667167f806bc77fb6e14",
+      "readme": "README.md",
+      "role": "witness",
+      "question": "Which bounded occurrence could earn an independently checked receipt?",
+      "authority": "EDITORIAL_CANDIDATE_NOT_SOURCE_WITNESS"
+    },
+    {
+      "id": "play",
+      "name": "GrO",
+      "repository": "the-static-collective/GrO",
+      "commit": "86798d9baed2e697af5700fc3c27b8c3444b19f0",
+      "readme": "README.md",
+      "role": "possibility",
+      "question": "What new affordance could someone encounter and refuse?",
+      "authority": "EDITORIAL_CANDIDATE_NOT_SOURCE_WITNESS"
+    },
+    {
+      "id": "music",
+      "name": "Static Live",
+      "repository": "the-static-collective/static-live",
+      "commit": "38e67b2930cea09c3e01a05447a6e92a67c2468f",
+      "readme": "README.md",
+      "role": "performance",
+      "question": "Who can join a performance without pretending missing musicians were present?",
+      "authority": "EDITORIAL_CANDIDATE_NOT_SOURCE_WITNESS"
+    },
+    {
+      "id": "publication",
+      "name": "lemonPRESS",
+      "repository": "the-static-collective/lemonPRESS",
+      "commit": "02feb4454240d482a5e0e03258f24f8b5cc0b9f5",
+      "readme": "README.md",
+      "role": "publish",
+      "question": "How might an experiment become a portable, attributable story?",
+      "authority": "EDITORIAL_CANDIDATE_NOT_SOURCE_WITNESS"
+    },
+    {
+      "id": "nursery",
+      "name": "GRAFT",
+      "repository": "the-static-collective/GRAFT",
+      "commit": "265fd538266a742d033ba2f5b408a78610d0a75c",
+      "readme": "README.md",
+      "role": "experiment",
+      "question": "What experimental branch is worth keeping rather than promoting?",
+      "authority": "EDITORIAL_CANDIDATE_NOT_SOURCE_WITNESS"
+    },
+    {
+      "id": "room",
+      "name": "Upper Room",
+      "repository": "the-static-collective/Upper-room",
+      "commit": "8d0693d1e409e8333a341e4660850873c29e60af",
+      "readme": "README.md",
+      "role": "scripture-encounter",
+      "question": "How can readers enter a shared Scripture room without being trapped by it?",
+      "authority": "EDITORIAL_CANDIDATE_NOT_SOURCE_WITNESS"
+    },
+    {
+      "id": "porch",
+      "name": "BananaGram / Gram-to-Fork",
+      "repository": "the-static-collective/BananaGram-Gram-to-Fork",
+      "commit": "5a0c9176f60f598bf1bebd23b729f19b5e2a1f5e",
+      "readme": "README.md",
+      "role": "invitation",
+      "question": "How could a tired caregiver encounter a voluntary invitation?",
+      "authority": "EDITORIAL_CANDIDATE_NOT_SOURCE_WITNESS"
+    },
+    {
+      "id": "circle",
+      "name": "Jubilee Campfire",
+      "repository": "the-static-collective/Jubilee-Campfire",
+      "commit": "ad7a5cbef03a1e68058a964d5f50ef6ed93ea274",
+      "readme": "README.md",
+      "role": "community",
+      "question": "What could Offer, Join and Remember enable without marketplace coercion?",
+      "authority": "EDITORIAL_CANDIDATE_NOT_SOURCE_WITNESS"
+    },
+    {
+      "id": "bridge",
+      "name": "WebZ Second Table",
+      "repository": "the-static-collective/webZ",
+      "commit": "38dbeb6b0acca96854bb8fcc84abbce326b9716a",
+      "readme": "README.md",
+      "role": "inheritance",
+      "question": "What could participants govern without the original founder?",
+      "authority": "EDITORIAL_CANDIDATE_NOT_SOURCE_WITNESS"
+    }
+  ],
+  "lenses": [
+    {
+      "id": "nourish",
+      "name": "Nourish",
+      "prompt": "What small concrete need could {left} and {right} help a willing person articulate without collecting private details?",
+      "nextGate": "CAREGIVER_OR_RECIPIENT_CONSENT"
+    },
+    {
+      "id": "attend",
+      "name": "Attend",
+      "prompt": "Which missing human decision between {left} and {right} should JAR;VIS hold open without pretending consent?",
+      "nextGate": "INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "id": "compose",
+      "name": "Compose",
+      "prompt": "What reproducible, bounded experiment could test a connection between {left} and {right} without granting either new authority?",
+      "nextGate": "SOURCE_OWNER_ADMISSION"
+    },
+    {
+      "id": "make",
+      "name": "Make",
+      "prompt": "What entirely optional creative or practical activity could {left} and {right} invite people to try, without turning vulnerability into spectacle?",
+      "nextGate": "PARTICIPANT_CHOICE"
+    },
+    {
+      "id": "remember",
+      "name": "Remember",
+      "prompt": "What would independently count as a real outcome if people used {left} with {right}, and what would remain unknown?",
+      "nextGate": "RECIPIENT_WITNESS"
+    },
+    {
+      "id": "inherit",
+      "name": "Inherit",
+      "prompt": "What freely modifiable method might {left} and {right} leave for the next independent community?",
+      "nextGate": "SUCCESSOR_SELF_GOVERNANCE"
+    },
+    {
+      "id": "refuse",
+      "name": "Refuse",
+      "prompt": "How can a participant reject both {left} and {right}, retain their autonomy, and still be welcome?",
+      "nextGate": "NO_PENALTY_REFUSAL"
+    }
+  ],
+  "sourceProof": {
+    "producer": "revival.jubilee_door",
+    "upstreamWitness": "OSHB Genesis 1:1-3",
+    "passage": "Gen.1.1",
+    "sourceCommit": "af1e00c24e3d7c6eb6b1ac39ef59bf894e2385fd"
+  },
+  "field": {
+    "peopleEnrolled": 0,
+    "childrenFed": 0,
+    "actsWitnessed": 0,
+    "communitySuccessorsVerified": 0,
+    "endorsements": 0
+  },
+  "rights": {
+    "scriptureAttribution": "Retain OSHB and MACULA source licenses inside the original Revival source-door bundle",
+    "ownerDescriptions": "Editorial speculative invitations only; original repositories remain independently governed."
+  }
+}
