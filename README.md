@@ -22,6 +22,18 @@ source-backed Bible kernel
 
 It exists so the projections can go farther.
 
+## Revival 016 — The Inheritance Constellation: a world worth inheriting
+
+**New draft experiment:** Compile the existing **original source-backed Genesis world** alongside an entirely separate, non-scriptural possibility studio that verifies **16 real independently owned Git repositories** at pinned source commits and composes **840 speculative, HELD curiosity questions** through seven lenses: Nourish, Attend, Compose, Make, Remember, Inherit, and Refuse.
+
+- The **Scripture room** is the original Revival-015 / Revival-011 Genesis world built from OSHB/MACULA with existing source receipts and licenses. Its evidence is never rewritten by the neighboring ideas.
+- The **possibility room** is a standalone, offline, no-intake HTML interface. Choose two projects and one lens, ask a bounded question, inspect original source pins, print, or refuse. It creates no real help requests or participation records.
+- The **verification** uses exact Git origin/commit/README bytes of 16 source owners, not mere repository-name matches, then cold-rebuilds all exported files. It does not claim 840 implemented integrations, real-world outcomes, theology, funding or permission.
+
+Build: `python -m revival.inheritance_constellation build /tmp/revival-016 --sources /path/to/pinned/owner-checkouts`. Verify using the same command with `verify` instead of `build`. See [Revival 016: The Inheritance Constellation](docs/INHERITANCE_CONSTELLATION_016.md) and the dedicated workflow for exact acquisition and replay.
+
+> **The source remains true to its witnesses. The invitations remain free to be refused.**
+
 ## The Revival part
 
 One person may want source order.

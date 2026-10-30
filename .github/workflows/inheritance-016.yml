@@ -1,0 +1,76 @@
+name: REVIVAL-016 sixteen original owners, seven lenses, 840 held seeds
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'sources/inheritance-016/owners.json'
+      - 'src/revival/inheritance_constellation.py'
+      - 'tests/test_inheritance_constellation.py'
+      - 'docs/INHERITANCE_CONSTELLATION_016.md'
+      - 'README.md'
+      - '.github/workflows/inheritance-016.yml'
+jobs:
+  inherited-world:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install original Revival compiler
+        run: python -m pip install -e .
+      - name: Run original and new Revival regression suites
+        run: python -m unittest discover -s tests -v
+      - name: Acquire sixteen actual source-owner READMEs at frozen commits
+        run: |
+          python - <<'PY'
+          import subprocess
+          from pathlib import Path
+          from revival.inheritance_constellation import load_manifest,verify_owner_checkouts
+          manifest=load_manifest(Path("sources/inheritance-016/owners.json"))
+          root=Path("/tmp/revival-inheritance-owner-checkouts")
+          root.mkdir(exist_ok=False)
+          for owner in manifest["owners"]:
+              name=owner["repository"].split("/")[-1]
+              origin="https://github.com/"+owner["repository"]+".git"
+              folder=root/name
+              subprocess.run(["git","clone","--quiet","--filter=blob:none",origin,str(folder)],check=True,timeout=150)
+              subprocess.run(["git","-C",str(folder),"checkout","--quiet","--detach",owner["commit"]],check=True,timeout=70)
+          result=verify_owner_checkouts(manifest,root)
+          assert len(result)==16
+          print("PINNED ORIGINAL README OWNERS CHECKED:",len(result))
+          PY
+      - name: Build original pinned Genesis Scripture world and compose 840 held invitations
+        run: |
+          python -m revival.inheritance_constellation build /tmp/revival-inheritance-016 --sources /tmp/revival-inheritance-owner-checkouts | tee /tmp/revival-016-build.json
+          test -s /tmp/revival-inheritance-016/genesis-world.html
+          test -s /tmp/revival-inheritance-016/inheritance-room.html
+          test -s /tmp/revival-inheritance-016/constellation.json
+          test -s /tmp/revival-inheritance-016/manifest.json
+      - name: Cold-rebuild all five source and output checks with no shortcuts
+        run: |
+          python -m revival.inheritance_constellation verify /tmp/revival-inheritance-016 --sources /tmp/revival-inheritance-owner-checkouts | tee /tmp/revival-016-verify.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          packet=json.loads(Path("/tmp/revival-inheritance-016/constellation.json").read_text())
+          assert len(packet["externalSourceEvidence"])==16
+          assert len(packet["seeds"])==840
+          assert packet["scripture"]["sourceCommit"]=="af1e00c24e3d7c6eb6b1ac39ef59bf894e2385fd"
+          assert all(x["status"]=="SPECULATIVE_HOLD_NO_ACTION" and x["scriptureRelation"] is None for x in packet["seeds"])
+          assert packet["boundaries"]["childOrFamilyIntakeEnabled"] is False
+          assert packet["boundaries"]["externalIdeasAreScripture"] is False
+          print("ORIGINAL GENESIS + 16 OWNER SOURCES + 840 HELD CANDIDATES: VERIFIED")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: REVIVAL-016-SOURCE-BOUND-INHERITABLE-WORLD
+          path: |
+            /tmp/revival-inheritance-016/
+            /tmp/revival-016-build.json
+            /tmp/revival-016-verify.json
+          retention-days: 14
