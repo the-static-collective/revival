@@ -45,6 +45,16 @@ jobs:
             --pretty
           test -s dist/revival-matthew5-witness.html
           ! grep -q 'audio_base64":' dist/revival-matthew5-witness.html
+      - name: Parse standalone browser JavaScript
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          html = Path("dist/revival-matthew5-witness.html").read_text(encoding="utf-8")
+          assert html.count("<script>") == 1
+          script = html.rsplit("<script>", 1)[1].split("</script>", 1)[0]
+          Path("/tmp/revival-matthew5-game.js").write_text(script, encoding="utf-8")
+          PY
+          node --check /tmp/revival-matthew5-game.js
       - name: Verify all existing REVIVAL tests still pass
         run: python -m unittest discover -s tests -v
       - name: Distribute offline Greek-WITNESS Atlas for phone testing
