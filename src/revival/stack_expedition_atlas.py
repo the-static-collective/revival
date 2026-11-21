@@ -244,7 +244,9 @@ function normalizePassage(raw){
 }
 function recordsFrom(p){
  if(!p||typeof p!=="object"||Array.isArray(p))throw Error("Not a metadata packet");
- if(JSON.stringify(p).length>950000)throw Error("Packet too large");
+ const rawJson=JSON.stringify(p);
+ if(rawJson.length>950000)throw Error("Packet too large");
+ if(/"(?:token|roomToken|privateKey|apiKey|serviceRoleKey|audio_base64|audio_blob)"\s*:/i.test(rawJson))throw Error("Private credential or audio payload is not allowed");
  const awards=p.awards;if(!awards||awards.Deeds!==0||awards.Harvests!==0||awards.Capacity!==0)throw Error("Foreign positive awards not accepted");
  let raw=[];
  if(p.schema==="static-collective.witness-freeplay-review.v1"&&p.source?.project==="WITNESS"){
