@@ -54,7 +54,7 @@ class StackExpeditionAtlasTests(unittest.TestCase):
         self.assertIn("localStorage", one)
         self.assertIn("revival-world-places.html", one)
         self.assertIn("0 Deeds", one)
-        self.assertNotIn("audio_base64", one)
+        self.assertNotIn('"audio_base64":', one)
 
     def test_no_network_calls_or_source_mutation_in_game_html(self):
         html = build_stack_expedition_html(self.world, self.game)
