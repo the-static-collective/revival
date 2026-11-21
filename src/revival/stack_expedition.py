@@ -23,7 +23,7 @@ PASSAGE = re.compile(
     r"^(gen(?:esis)?|mat(?:thew)?)[\.\s]+(\d{1,3})[\.\s]+(\d{1,3})$",
     re.IGNORECASE,
 )
-FORBIDDEN = {"token", "roomtoken", "privatekey", "apikey", "servicerolekey", "audiobase"}
+FORBIDDEN = {"token", "roomtoken", "privatekey", "apikey", "servicerolekey", "audiobase", "audioblob"}
 
 
 def normalize_passage(value: Any) -> str | None:
