@@ -575,6 +575,25 @@ So a name can become real while semantic type remains fog.
 See [Earned Names](docs/EARNED_NAMES.md) and
 [lexicon attribution](sources/oshb-hebrew-lexicon/ATTRIBUTION.md).
 
+## REVIVAL 014 — Matthew 5: The Open Word
+
+REVIVAL now has a distinct, **source-backed Greek Matthew 5 world**, independently proven from the existing OSHB Hebrew Genesis world. The [full source and WITNESS bridge contract](docs/MATTHEW5_GREEK_WITNESS_014.md) describes the pinned SBLGNT v1.2 upstream Git commit and exact file identities, **CC BY 4.0** attribution, 48 retained Greek verses, exact orthographic source spans and separate edition-level receipts.
+
+The standalone Greek game lets a visitor enter any verse, inspect its exact Greek display segments, discover passages, and keep bounded private exploration progress. It can also **import WITNESS's voluntarily exported Matthew 5 recording packages** to checksum-verify and locally play the corresponding **World English Bible** human audio next to the Greek text. They match by passage address only—**not by translation equivalence**, literary interpretation, or authenticated speaker identity.
+
+```bash
+python -m pip install -e .
+python -m unittest discover -s tests -p 'test_matthew5.py' -v
+python -m revival.matthew5_atlas \
+  --root . \
+  --output dist/revival-matthew5-witness.html \
+  --pretty
+```
+
+Open `dist/revival-matthew5-witness.html` in a browser. The game has no backend calls; WITNESS audio is imported in-memory only and is not uploaded anywhere. Its local journey export issues **0 Full Measure Deeds, Harvests, or Capacity**.
+
+The bound SBLGNT source is © 2010 Society of Biblical Literature and Logos Bible Software, edited by Michael W. Holmes, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Attribution and extraction changes are documented in [the source manifest](sources/sblgnt-v1.2/source.json). No endorsement is implied.
+
 ## REVIVAL 013 — The Living Source Expedition
 
 The new [Scripture Stack Expedition](docs/STACK_EXPEDITION_013.md) is a standalone cooperative exploration game *over source-backed Revival 011 places*, not a competing Bible translation or authority engine.
