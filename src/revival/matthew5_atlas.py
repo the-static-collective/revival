@@ -253,8 +253,8 @@ function clearAudio(){
  urls.forEach(url=>URL.revokeObjectURL(url));urls=[];loadedAudio=[];
  $("witnessImport").value="";renderAudio();
 }
-function newRecord({id,passage,edition,hash,mime=null,url=null,right=null,mode="metadata"}){
- return {id,passage,edition,hash,mime,url,right,mode};
+function newRecord({id,passage,edition,hash,mime=null,url=null,right=null,reader=null,mode="metadata"}){
+ return {id,passage,edition,hash,mime,url,right,reader,mode};
 }
 async function readWITNESS(file){
  if(file.size>28*1024*1024)throw Error("Package too large (28 MB limit)");
@@ -281,7 +281,7 @@ async function readWITNESS(file){
     const mime=types.find(t=>String(record.media_type||"").startsWith(t))||"audio/webm";
     const url=URL.createObjectURL(new Blob([bytes],{type:mime}));newUrls.push(url);
     entries.push(newRecord({id:String(record.recording_id||""),passage,edition:"engwebp",hash:digest,mime,url,
-      right:String(record.recording_license||"unknown"),mode:"verified-local-audio"}));
+      right:String(record.recording_license||"unknown"),reader:String(record.reader_name||"undisclosed"),mode:"verified-local-audio"}));
    }
   }else if(pkg.schema==="static-collective.witness-freeplay-review.v1"&&pkg.source?.project==="WITNESS"){
    if(!Array.isArray(pkg.sample)||pkg.sample.length>120)throw Error("Malformed review sample");
@@ -289,7 +289,7 @@ async function readWITNESS(file){
    for(const record of pkg.sample){
     const passage=passageForRecording(record.passage);
     if(!passage||!/^[a-f0-9]{64}$/i.test(record.sha256||"")||!record.edition)throw Error("Invalid metadata reference");
-    entries.push(newRecord({id:String(record.recordingId||""),passage,edition:record.edition,hash:record.sha256,right:record.declaredRights,mode:"metadata-only"}));
+    entries.push(newRecord({id:String(record.recordingId||""),passage,edition:record.edition,hash:record.sha256,right:record.declaredRights,reader:record.declaredReader,mode:"metadata-only"}));
    }
   }else if(pkg.schema==="static-collective.witness-pact-full-measure-candidate.v1"&&pkg.source?.project==="WITNESS community audio Bible"){
    if(pkg.bridge?.withdrawn)throw Error("Withdrawn reference");
@@ -317,6 +317,8 @@ function renderAudio(){
    const box=node("div",undefined,"recording");
    box.append(node("strong",record.edition+" · "+(record.url?"Audio checked locally":"Recording reference only")));
    box.append(node("small","ID "+record.id+" · SHA "+record.hash.slice(0,16)+"…"));
+   if(record.reader)box.append(node("small","Declared reader: "+record.reader+" (not verified identity)"));
+   if(record.right)box.append(node("small","Declared contribution permission: "+record.right));
    if(record.url){
     const player=document.createElement("audio");
     player.controls=true;player.preload="none";player.src=record.url;box.append(player);
