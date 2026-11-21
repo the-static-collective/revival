@@ -23,7 +23,7 @@ PASSAGE = re.compile(
     r"^(gen(?:esis)?|mat(?:thew)?)[\.\s]+(\d{1,3})[\.\s]+(\d{1,3})$",
     re.IGNORECASE,
 )
-FORBIDDEN = {"token", "roomtoken", "privatekey", "servicerolekey", "audio_base64"}
+FORBIDDEN = {"token", "roomtoken", "privatekey", "apikey", "servicerolekey", "audiobase64"}
 
 
 def normalize_passage(value: Any) -> str | None:
@@ -144,6 +144,8 @@ def build_scripture_stack_expedition(
     receipt = revival_world.get("receipt")
     if not isinstance(world, Mapping) or not isinstance(receipt, Mapping):
         raise ValueError("requires a receipted Revival world_places result")
+    if receipt.get("projection_sha256") != sha256(world):
+        raise ValueError("Revival world receipt does not match its projected places")
     places = world.get("places")
     if not isinstance(places, list) or not places:
         raise ValueError("Revival world must contain its derived place addresses")
