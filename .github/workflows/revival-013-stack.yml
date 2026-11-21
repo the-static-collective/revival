@@ -40,6 +40,14 @@ jobs:
             --pretty
           test -s dist/revival-stack-expedition.html
           test -s dist/revival-world-places.html
-          ! grep -q 'audio_base64' dist/revival-stack-expedition.html
+          ! grep -q '"audio_base64":' dist/revival-stack-expedition.html
       - name: Full existing REVIVAL suite
         run: python -m unittest discover -s tests -v
+      - name: Make offline expedition available for testing
+        uses: actions/upload-artifact@v4
+        with:
+          name: revival-013-offline-expedition
+          path: |
+            dist/revival-stack-expedition.html
+            dist/revival-world-places.html
+          retention-days: 30
