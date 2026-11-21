@@ -1,0 +1,42 @@
+{
+  "schema": "static-collective.witness-freeplay-review.v1",
+  "source": {
+    "project": "WITNESS",
+    "game": "witness.freeplay.v1",
+    "chapter": "matthew.5",
+    "roomId": null,
+    "edition": "engwebp"
+  },
+  "progress": {
+    "coveredAddresses": [
+      1
+    ],
+    "takeCount": 1,
+    "localPlaybackCompletions": 0
+  },
+  "sample": [
+    {
+      "recordingId": "synthetic-witness-matthew-5-001",
+      "passage": "matthew.5.1",
+      "edition": "engwebp",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "declaredReader": "Fictional Fixture Reader",
+      "declaredRights": "fixture-only; no real permission"
+    }
+  ],
+  "bounds": {
+    "notIdentityProof": true,
+    "notSpiritualMerit": true,
+    "notVerifiedHumanListening": true,
+    "noAudioIncluded": true,
+    "noAutomaticFullMeasureAwards": true
+  },
+  "awards": {
+    "Deeds": 0,
+    "Harvests": 0,
+    "Capacity": 0
+  },
+  "status": "REVIEW_ONLY_UNVERIFIED",
+  "fixtureOnly": true,
+  "note": "Synthetic fixture illustrating the unmapped Matthew 5 frontier. This is NOT an actual Scripture audio recording or proof of anyone's participation."
+}

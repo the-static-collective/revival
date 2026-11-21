@@ -575,6 +575,33 @@ So a name can become real while semantic type remains fog.
 See [Earned Names](docs/EARNED_NAMES.md) and
 [lexicon attribution](sources/oshb-hebrew-lexicon/ATTRIBUTION.md).
 
+## REVIVAL 013 — The Living Source Expedition
+
+The new [Scripture Stack Expedition](docs/STACK_EXPEDITION_013.md) is a standalone cooperative exploration game *over source-backed Revival 011 places*, not a competing Bible translation or authority engine.
+
+- Open real Genesis 1:1–3 passage and token rooms in a paired offline world Atlas.
+- Mark distinct local exploratory visits, unlock curious chapter milestones and earn bounded nonredeemable game glimmers; revisiting cannot farm points.
+- Import explicitly volunteered **WITNESS community audio Bible** or **THE PACT** metadata candidate packets for **review only**. The actual audio stays with WITNESS; no project keys or private rooms are accessed.
+- Preserve the present source gap: WITNESS's Matthew 5 WEB audio does **not** become a false Greek/Genesis source room. REVIVAL has proven Genesis 1:1–3 only, so Matthew appears as **UNMAPPED_EXTERNAL_PASSAGE**.
+- Export a local journey review. **Full Measure retains its own human-approved Deeds, Harvests and Capacity decisions; every automatic quantity remains zero.**
+
+Try the synthetic WITNESS Matthew 5 fixture:
+
+```bash
+python -m pip install -e .
+python -m revival.stack_expedition_atlas \
+  corpora/oshb-v2.2-genesis-opening.json \
+  --macula-xml sources/macula-hebrew/Gen.1.1-lowfat.xml \
+  --macula-manifest sources/macula-hebrew/source.json \
+  --companion-packet specimens/revival-013-witness-matthew5-synthetic.json \
+  --output dist/revival-stack-expedition.html \
+  --pretty
+```
+
+Open `dist/revival-stack-expedition.html` with its generated companion `dist/revival-world-places.html`. Everything runs locally.
+
+`python -m unittest discover -s tests -p 'test_stack_expedition*.py' -v` checks the crossing before using it.
+
 ## What must survive every compilation
 
 Revival begins with six kernel primitives:
